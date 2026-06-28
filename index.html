@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS検定学習アプリ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="top-screen" class="screen">
+        <h1>DS検定学習</h1>
+        <button id="btn-all" onclick="startQuiz('all', 'all')" disabled>全問学習スタート</button>
+        <button id="btn-cat" onclick="showCategoryMenu()" disabled>分野別学習</button>
+        <button onclick="showReportScreen()">成績を確認</button>
+        <div id="category-menu" style="display:none;">
+            <p>分野を選択:</p>
+            <div id="category-buttons"></div>
+        </div>
+    </div>
+
+    <div id="report-screen" class="screen" style="display:none;">
+        <h2>成績レポート（直近7日間）</h2>
+        <div id="report-content"></div>
+        <button onclick="showScreen('top-screen')" class="back-btn">トップへ戻る</button>
+    </div>
+
+    <div id="quiz-screen" class="screen" style="display:none;">
+        <h2 id="question">問題を読み込み中...</h2>
+        <div id="choices-container"></div>
+        <div id="feedback"></div>
+    </div>
+</body>
+</html>
