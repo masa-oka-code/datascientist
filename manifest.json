@@ -1,7 +1,7 @@
 {
   "name": "DS検定学習アプリ",
   "short_name": "DS学習",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
