@@ -390,4 +390,23 @@ function renderWeakHierarchy(logs, content) {
             content.appendChild(div);
         });
     }
+    let deferredPrompt = null;
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const btn = document.getElementById("install-btn");
+      if (btn) btn.style.display = "block";
+    });
+
+    function installApp() {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        deferredPrompt = null;
+        const btn = document.getElementById("install-btn");
+        if (btn) btn.style.display = "none";
+      });
+    }
+
 }
