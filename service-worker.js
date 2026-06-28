@@ -1,12 +1,10 @@
-const CACHE_NAME = "ds-app-cache-v1";
+const CACHE_NAME = "ds-app-cache-v2";
 const urlsToCache = [
   "./index.html",
   "./style.css",
   "./script.js",
-  "./data.json",
   "./icon-192.png",
-  "./icon-512.png",
-  "./manifest.json"
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {
