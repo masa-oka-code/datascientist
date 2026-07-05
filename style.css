@@ -1,0 +1,365 @@
+/* ===========================
+   Design tokens
+   =========================== */
+:root {
+    --bg: #FAFAF9;
+    --surface: #FFFFFF;
+    --border: #E2E2E0;
+    --border-strong: #D2D2CF;
+    --text: #1F2024;
+    --text-secondary: #6B6D76;
+    --accent: #3B5BDB;
+    --accent-hover: #32499F;
+    --accent-subtle: #EEF1FC;
+    --error: #D64545;
+    --error-subtle: #FBEAEA;
+    --radius: 10px;
+    --radius-sm: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px 16px 40px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===========================
+   Layout
+   =========================== */
+.screen {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+h1, h2 {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    margin: 4px 0 12px;
+}
+
+h1 {
+    font-size: 22px;
+}
+
+h2 {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* ===========================
+   Buttons (base)
+   =========================== */
+button {
+    appearance: none;
+    padding: 14px 16px;
+    min-height: 48px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    text-align: left;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+
+button:hover {
+    border-color: var(--border-strong);
+    background: #F5F5F4;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* トップ画面の主要導線ボタンはアクセントで強調 */
+#btn-all, #btn-cat {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+}
+
+#btn-all:hover, #btn-cat:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+/* 成績確認はセカンダリ導線として控えめに */
+#top-screen > button:not(#btn-all):not(#btn-cat) {
+    text-align: center;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* 選択肢ボタン：縦一列、フラットなミニマル */
+.choice-btn {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.choice-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-subtle);
+}
+
+/* 戻る・中断ボタン：選択肢群と視覚的に分離した控えめなトーン */
+.back-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-weight: 500;
+}
+
+.back-btn:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+    background: #F5F5F4;
+}
+
+/* ===========================
+   Quiz screen
+   =========================== */
+#choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 中断ボタンを選択肢群から少し離して下部に固定する印象に */
+#choices-container .back-btn {
+    margin-top: 14px;
+}
+
+#feedback {
+    order: -1;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    min-height: 0;
+}
+
+#feedback:empty {
+    display: none;
+    padding: 0;
+    border: none;
+}
+
+#feedback.feedback-correct {
+    background: var(--accent-subtle);
+    border-left: 3px solid var(--accent);
+}
+
+#feedback.feedback-incorrect {
+    background: var(--error-subtle);
+    border-left: 3px solid var(--error);
+}
+
+.feedback-result-label {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+#feedback.feedback-correct .feedback-result-label {
+    color: var(--accent);
+}
+
+#feedback.feedback-incorrect .feedback-result-label {
+    color: var(--error);
+}
+
+.feedback-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feedback-layer {
+    margin: 0;
+}
+
+.feedback-layer:not(:first-child) {
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-strong);
+}
+
+.more-detail-btn {
+    margin-top: 12px;
+    padding: 10px 14px;
+    min-height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--surface);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    width: 100%;
+}
+
+#feedback.feedback-incorrect .more-detail-btn {
+    color: var(--error);
+    border-color: var(--error);
+}
+
+.more-detail-btn:hover {
+    background: var(--accent-subtle);
+}
+
+#feedback.feedback-incorrect .more-detail-btn:hover {
+    background: var(--error-subtle);
+}
+
+/* 次の問題へ：主要導線として強調 */
+.next-btn {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+}
+
+.next-btn:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+/* ===========================
+   Category menu
+   =========================== */
+#category-menu p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 4px 0;
+}
+
+#category-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#category-buttons button {
+    text-align: center;
+}
+
+/* ===========================
+   Report screen
+   =========================== */
+.cat-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 20px;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+.cat-title:first-child {
+    margin-top: 4px;
+}
+
+.sub-row {
+    margin: 0;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.sub-row:hover {
+    border-color: var(--accent);
+    background: var(--accent-subtle);
+}
+
+.sub-row:active {
+    transform: scale(0.99);
+}
+
+.sub-row > div:first-child {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.report-bar {
+    background: var(--border);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.report-fill {
+    background: var(--accent);
+    height: 100%;
+    border-radius: 3px;
+}
+
+#report-content:empty::before {
+    content: "まだ記録がありません。学習を始めましょう。";
+    display: block;
+    color: var(--text-secondary);
+    font-size: 14px;
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* ===========================
+   苦手な概念 TOP5
+   =========================== */
+.weak-concept-title {
+    color: var(--error);
+}
+
+.weak-concept-row {
+    border-color: var(--error-subtle);
+}
+
+.weak-concept-row:hover {
+    background: var(--error-subtle);
+    border-color: var(--error);
+}
+
+.weak-concept-row .report-fill {
+    background: var(--error);
+}
+
+.weak-concept-count {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
