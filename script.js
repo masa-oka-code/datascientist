@@ -1,3 +1,4 @@
+
 let quizData = [];
 let remainingQuestions = [];
 
