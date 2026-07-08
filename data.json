@@ -5378,7 +5378,8 @@
   {
     "id": 201,
     "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "subcategory": "confidence_interval",
+    "concept_id": "stats_basics",
     "question": "母平均の95%信頼区間とは何を意味するか？",
     "choices": [
       "母平均が必ずその範囲に入る",
@@ -5386,13 +5387,22 @@
       "同じ調査を繰り返すと95%の区間が母平均を含む",
       "母集団の95%がその範囲に入る"
     ],
-    "answer": 2,
-    "explanation": "信頼区間は『同じ調査を繰り返したとき、95%の区間が母平均を含む』という頻度論的な解釈を持つ。"
+    "answer": "同じ調査を繰り返すと95%の区間が母平均を含む",
+    "tags": ["信頼区間", "頻度論", "母平均"],
+    "explanation_layers": [
+      "95%信頼区間は頻度論的な概念であり、母平均が区間に入る確率を示すものではありません。",
+      "同じ調査を何度も繰り返した場合、その95%の区間が真の母平均を含むという意味です。",
+      "この解釈は頻度論に基づくもので、ベイズ統計の「事後分布による区間」とは異なります。",
+      "信頼区間は推定の不確実性を表す重要な指標です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 202,
     "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "subcategory": "confidence_interval",
+    "concept_id": "stats_basics",
     "question": "標本平均の標準誤差（SE）はどのように計算されるか？",
     "choices": [
       "標準偏差 ÷ 標本数",
@@ -5400,97 +5410,124 @@
       "標準偏差 ÷ √標本数",
       "標準偏差 × √標本数"
     ],
-    "answer": 2,
-    "explanation": "標準誤差は標準偏差を標本数の平方根で割ることで求められる。"
+    "answer": "標準偏差 ÷ √標本数",
+    "tags": ["標準誤差", "標本平均", "推定"],
+    "explanation_layers": [
+      "標準誤差（SE）は標本平均のばらつきを表す指標です。",
+      "SEは「標準偏差 ÷ √標本数」で計算され、標本数が増えるほど小さくなります。",
+      "標準誤差が小さいほど推定精度が高くなり、信頼区間も狭くなります。",
+      "統計的推定では標準誤差の理解が不可欠です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 203,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "標本平均50、標準誤差2のとき、95%信頼区間は？（Z=1.96）",
-    "choices": [
-      "46.08〜53.92",
-      "48〜52",
-      "50±2",
-      "50±1.96"
+    "choices": ["46.08〜53.92", "48〜52", "50±2", "50±1.96"],
+    "answer": "46.08〜53.92",
+    "tags": ["信頼区間", "標本平均", "標準誤差"],
+    "explanation_layers": [
+      "95%信頼区間は「標本平均 ± Z値 × 標準誤差」で計算されます。",
+      "この問題では 50 ± 1.96 × 2 を計算するため、区間は 46.08〜53.92 となります。",
+      "Z値1.96は95%信頼区間に対応する標準正規分布の値であり、標準誤差が大きいほど区間は広くなります。"
     ],
-    "answer": 0,
-    "explanation": "50 ± 1.96×2 = 46.08〜53.92。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 204,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "信頼区間が広くなる要因はどれか？",
-    "choices": [
-      "標本数が増える",
-      "標準誤差が小さくなる",
-      "信頼係数を大きくする（95%→99%）",
-      "標本平均が大きくなる"
+    "choices": ["標本数が増える", "標準誤差が小さくなる", "信頼係数を大きくする（95%→99%）", "標本平均が大きくなる"],
+    "answer": "信頼係数を大きくする（95%→99%）",
+    "tags": ["信頼区間", "信頼係数", "Z値"],
+    "explanation_layers": [
+      "信頼係数を大きくすると、Z値が大きくなるため信頼区間は広くなります。",
+      "例えば95%ではZ=1.96ですが、99%ではZ=2.576となり区間が広がります。",
+      "信頼係数を高めることは安全側の推定になりますが、区間が広くなるため精度は下がります。"
     ],
-    "answer": 2,
-    "explanation": "信頼係数を大きくするとZ値が大きくなり、区間が広くなる。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 205,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "標本数が増えると信頼区間はどう変化するか？",
-    "choices": [
-      "広くなる",
-      "狭くなる",
-      "変わらない",
-      "標本平均によって決まる"
+    "choices": ["広くなる", "狭くなる", "変わらない", "標本平均によって決まる"],
+    "answer": "狭くなる",
+    "tags": ["信頼区間", "標本数", "標準誤差"],
+    "explanation_layers": [
+      "標本数が増えると標準誤差（SD/√n）が小さくなるため、信頼区間は狭くなります。",
+      "標本数が多いほど標本平均のばらつきが減り、推定精度が向上します。",
+      "そのため大規模調査ほど信頼区間が狭く、より精度の高い推定が可能になります。"
     ],
-    "answer": 1,
-    "explanation": "標本数が増えると標準誤差が小さくなり、信頼区間は狭くなる。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 206,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "母分散が未知で標本数が少ない場合に使う分布は？",
-    "choices": [
-      "正規分布",
-      "t分布",
-      "二項分布",
-      "ポアソン分布"
+    "choices": ["正規分布", "t分布", "二項分布", "ポアソン分布"],
+    "answer": "t分布",
+    "tags": ["t分布", "信頼区間", "小標本"],
+    "explanation_layers": [
+      "母分散が未知で標本数が少ない場合、標本平均の分布は正規分布ではなくt分布に従います。",
+      "t分布は裾が厚く、小標本の不確実性を反映した分布です。",
+      "標本数が増えるほどt分布は正規分布に近づきます。"
     ],
-    "answer": 1,
-    "explanation": "母分散未知かつ標本数が少ない場合はt分布を使う。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 207,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "標本数10、標本平均40、標準偏差5のとき、95%信頼区間は？（t=2.262）",
-    "choices": [
-      "40±2.262",
-      "40±(2.262×5)",
-      "40±(2.262×5/√10)",
-      "40±(2.262×√10)"
+    "choices": ["40±2.262", "40±(2.262×5)", "40±(2.262×5/√10)", "40±(2.262×√10)"],
+    "answer": "40±(2.262×5/√10)",
+    "tags": ["信頼区間", "t分布", "標準誤差"],
+    "explanation_layers": [
+      "小標本かつ母分散未知のため、t分布を使って信頼区間を計算します。",
+      "標準誤差は SD/√n = 5/√10 となります。",
+      "よって区間は 40 ± 2.262 × (5/√10) となります。"
     ],
-    "answer": 2,
-    "explanation": "標準誤差は5/√10。よって40±2.262×(5/√10)。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 208,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "信頼区間の幅を狭くしたい場合、最も効果的な方法は？",
-    "choices": [
-      "標本数を増やす",
-      "標本平均を変える",
-      "標準偏差を大きくする",
-      "信頼係数を大きくする"
+    "choices": ["標本数を増やす", "標本平均を変える", "標準偏差を大きくする", "信頼係数を大きくする"],
+    "answer": "標本数を増やす",
+    "tags": ["信頼区間", "標本数", "標準誤差"],
+    "explanation_layers": [
+      "標本数を増やすと標準誤差が減り、信頼区間が狭くなります。",
+      "標本数の増加は推定精度を高める最も強力な方法です。",
+      "信頼係数を変えるよりも、標本数の増加が区間幅に大きく影響します。"
     ],
-    "answer": 0,
-    "explanation": "標本数を増やすと標準誤差が減り、区間が狭くなる。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 209,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "95%信頼区間が『30〜40』だったとき、正しい解釈は？",
     "choices": [
       "母平均は必ず30〜40にある",
@@ -5498,111 +5535,140 @@
       "同じ調査を繰り返すと95%の区間が母平均を含む",
       "標本平均は必ず30〜40にある"
     ],
-    "answer": 2,
-    "explanation": "信頼区間は頻度論的な解釈であり、母平均の確率ではない。"
+    "answer": "同じ調査を繰り返すと95%の区間が母平均を含む",
+    "tags": ["信頼区間", "頻度論", "解釈"],
+    "explanation_layers": [
+      "信頼区間は頻度論的な概念であり、母平均の確率を示すものではありません。",
+      "同じ調査を繰り返したとき、95%の区間が母平均を含むという意味です。",
+      "区間自体が確率を持つのではなく、推定手続きの長期的性質を表します。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 210,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "標本平均が変わらず標準偏差だけが大きくなると、信頼区間はどうなる？",
-    "choices": [
-      "狭くなる",
-      "広くなる",
-      "変わらない",
-      "標本数によって決まる"
+    "choices": ["狭くなる", "広くなる", "変わらない", "標本数によって決まる"],
+    "answer": "広くなる",
+    "tags": ["信頼区間", "標準偏差", "標準誤差"],
+    "explanation_layers": [
+      "標準偏差が大きいほど標準誤差も大きくなり、信頼区間は広くなります。",
+      "標準偏差はデータのばらつきを表し、ばらつきが大きいほど推定の不確実性が増します。",
+      "そのため標準偏差の増加は信頼区間の幅を広げる主要因となります。"
     ],
-    "answer": 1,
-    "explanation": "標準偏差が大きいほど標準誤差も大きくなり、区間が広くなる。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 211,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "信頼区間の計算で使う標準誤差は何を表すか？",
-    "choices": [
-      "標本平均のばらつき",
-      "母平均のばらつき",
-      "標本のばらつき",
-      "母集団のばらつき"
+    "choices": ["標本平均のばらつき", "母平均のばらつき", "標本のばらつき", "母集団のばらつき"],
+    "answer": "標本平均のばらつき",
+    "tags": ["標準誤差", "信頼区間", "標本平均"],
+    "explanation_layers": [
+      "標準誤差は標本平均のばらつきを表す指標です。",
+      "標本平均は標本数が少ないほど変動しやすく、標準誤差が大きくなります。",
+      "信頼区間はこの標準誤差を基に構築されます。"
     ],
-    "answer": 0,
-    "explanation": "標準誤差は標本平均のばらつきを表す。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 212,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "信頼区間の中心は何か？",
-    "choices": [
-      "母平均",
-      "標本平均",
-      "中央値",
-      "最頻値"
+    "choices": ["母平均", "標本平均", "中央値", "最頻値"],
+    "answer": "標本平均",
+    "tags": ["信頼区間", "標本平均"],
+    "explanation_layers": [
+      "信頼区間は標本平均を中心に構築されます。",
+      "標本平均は母平均の推定値として最も基本的な統計量です。",
+      "区間の幅は標準誤差と信頼係数によって決まりますが、中心は常に標本平均です。"
     ],
-    "answer": 1,
-    "explanation": "信頼区間は標本平均を中心に構築される。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 213,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "標本数が非常に大きい場合、t分布はどうなる？",
-    "choices": [
-      "正規分布に近づく",
-      "二項分布に近づく",
-      "ポアソン分布に近づく",
-      "一様分布に近づく"
+    "choices": ["正規分布に近づく", "二項分布に近づく", "ポアソン分布に近づく", "一様分布に近づく"],
+    "answer": "正規分布に近づく",
+    "tags": ["t分布", "正規分布", "大標本"],
+    "explanation_layers": [
+      "標本数が大きいほどt分布は正規分布に近づきます。",
+      "これは自由度が増えることでt分布の裾が薄くなり、標準正規分布とほぼ一致するためです。",
+      "そのため大標本ではZ値を使った信頼区間が適用できます。"
     ],
-    "answer": 0,
-    "explanation": "標本数が大きいとt分布は正規分布に近づく。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 214,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "信頼区間の幅は何に比例するか？",
-    "choices": [
-      "標準誤差",
-      "標本平均",
-      "標本数",
-      "中央値"
+    "choices": ["標準誤差", "標本平均", "標本数", "中央値"],
+    "answer": "標準誤差",
+    "tags": ["信頼区間", "標準誤差"],
+    "explanation_layers": [
+      "信頼区間の幅は標準誤差に比例します。",
+      "標準誤差が大きいほど区間は広くなり、推定の不確実性が増します。",
+      "標準誤差は標準偏差と標本数によって決まります。"
     ],
-    "answer": 0,
-    "explanation": "信頼区間の幅は標準誤差に比例する。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 215,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "標本平均が変わると信頼区間はどうなる？",
-    "choices": [
-      "幅が変わる",
-      "中心が移動する",
-      "両方変わる",
-      "何も変わらない"
+    "choices": ["幅が変わる", "中心が移動する", "両方変わる", "何も変わらない"],
+    "answer": "中心が移動する",
+    "tags": ["信頼区間", "標本平均"],
+    "explanation_layers": [
+      "標本平均は信頼区間の中心であるため、標本平均が変わると区間の中心が移動します。",
+      "ただし区間の幅は標準誤差と信頼係数によって決まるため変わりません。",
+      "中心の移動は推定値の変化を反映しています。"
     ],
-    "answer": 1,
-    "explanation": "標本平均は区間の中心なので、中心が移動するだけで幅は変わらない。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 216,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
     "question": "信頼係数を95%から99%にするとどうなる？",
-    "choices": [
-      "区間が狭くなる",
-      "区間が広くなる",
-      "標本平均が変わる",
-      "標準誤差が変わる"
+    "choices": ["区間が狭くなる", "区間が広くなる", "標本平均が変わる", "標準誤差が変わる"],
+    "answer": "区間が広くなる",
+    "tags": ["信頼区間", "信頼係数", "Z値"],
+    "explanation_layers": [
+      "信頼係数を上げるとZ値が大きくなるため、信頼区間は広くなります。",
+      "99%ではより広い範囲を「母平均を含む区間」として設定する必要があります。",
+      "安全側の推定になりますが、精度は低下します。"
     ],
-    "answer": 1,
-    "explanation": "信頼係数を上げるとZ値が大きくなり、区間が広くなる。"
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 217,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_basics",
     "question": "標本数が少ないときに信頼区間が不安定になる理由は？",
     "choices": [
       "標本平均が変動しやすい",
@@ -5610,13 +5676,26 @@
       "母平均が変動する",
       "信頼係数が変動する"
     ],
-    "answer": 0,
-    "explanation": "標本数が少ないと標本平均のばらつきが大きくなるため。"
+    "answer": "標本平均が変動しやすい",
+    "tags": [
+      "信頼区間",
+      "標本数",
+      "推定"
+    ],
+    "explanation_layers": [
+      "標本数が少ないほど標本平均のばらつきが大きくなり、信頼区間が不安定になります。",
+      "例えば、10人の平均身長よりも1000人の平均身長の方が変動が小さく、信頼区間も安定します。",
+      "標本数が少ない場合は標準誤差が大きくなるため、区間幅が広くなり推定の精度が低下します。",
+      "このため、小標本ではt分布を使うなど、ばらつきを適切に扱う必要があります。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 218,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_basics",
     "question": "信頼区間の計算でZ値を使う条件は？",
     "choices": [
       "標本数が大きい、母分散既知",
@@ -5624,13 +5703,26 @@
       "標本数が小さい、母分散既知",
       "標本数が大きい、母分散未知"
     ],
-    "answer": 0,
-    "explanation": "Z値は標本数が大きく母分散既知の場合に使う。"
+    "answer": "標本数が大きい、母分散既知",
+    "tags": [
+      "信頼区間",
+      "Z値",
+      "推定"
+    ],
+    "explanation_layers": [
+      "Z値は、標本数が十分大きく、母分散が既知である場合に使用します。",
+      "母分散既知であれば標本平均の分布が正規分布に従うため、Z値を使った区間推定が可能です。",
+      "標本数が小さい場合や母分散未知の場合は、標本分散を使うためt分布を使います。",
+      "Z値とt値の使い分けは、信頼区間の正しい計算に不可欠です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 219,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_basics",
     "question": "信頼区間の幅を広げたい場合、どの操作が適切か？",
     "choices": [
       "標本数を減らす",
@@ -5638,13 +5730,26 @@
       "信頼係数を下げる",
       "標本平均を変える"
     ],
-    "answer": 0,
-    "explanation": "標本数を減らすと標準誤差が増え、区間が広くなる。"
+    "answer": "標本数を減らす",
+    "tags": [
+      "信頼区間",
+      "標本数",
+      "推定"
+    ],
+    "explanation_layers": [
+      "標本数を減らすと標準誤差が大きくなり、信頼区間の幅が広くなります。",
+      "標準誤差は母標準偏差を標本数の平方根で割った値であり、標本数が小さいほど大きくなります。",
+      "信頼係数を上げる（95%→99%）場合も区間は広くなりますが、最も直接的な要因は標本数です。",
+      "区間幅の調整は推定の精度と安全性のバランスを取るために重要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 220,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_basics",
     "question": "信頼区間が『狭い』ということは何を意味するか？",
     "choices": [
       "推定の精度が高い",
@@ -5652,13 +5757,26 @@
       "標本平均が大きい",
       "標本数が少ない"
     ],
-    "answer": 0,
-    "explanation": "信頼区間が狭いほど推定精度が高いことを意味する。"
+    "answer": "推定の精度が高い",
+    "tags": [
+      "信頼区間",
+      "推定精度",
+      "標準誤差"
+    ],
+    "explanation_layers": [
+      "信頼区間が狭いほど、推定の精度が高いことを意味します。",
+      "区間が狭いということは標準誤差が小さく、標本平均のばらつきが小さいことを示します。",
+      "標本数が多いほど信頼区間は狭くなり、推定の安定性が高まります。",
+      "精度の高い推定は、意思決定やモデル構築において重要な要素です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
   },
   {
     "id": 221,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が0.8のとき、正しい解釈はどれか？",
     "choices": [
       "強い正の線形関係がある",
@@ -5666,13 +5784,26 @@
       "線形関係はない",
       "因果関係がある"
     ],
-    "answer": 0,
-    "explanation": "0.8は強い正の線形関係を示すが、因果関係を意味しない。"
+    "answer": "強い正の線形関係がある",
+    "tags": [
+      "相関係数",
+      "正の相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が0.8のとき、2つの変数の間に強い正の線形関係があると解釈されます。",
+      "値が1に近いほど直線的な関係が強く、0.8はかなり高い相関を示します。",
+      "ただし、相関係数は因果関係を保証するものではなく、第三の変数の影響なども考慮する必要があります。",
+      "相関係数の解釈では、散布図を併用して関係の形を確認することが重要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 222,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が0のときの正しい解釈は？",
     "choices": [
       "線形関係がない",
@@ -5680,13 +5811,26 @@
       "非線形関係もない",
       "因果関係がない"
     ],
-    "answer": 0,
-    "explanation": "相関係数0は線形関係がないことを示すが、非線形関係は存在する可能性がある。"
+    "answer": "線形関係がない",
+    "tags": [
+      "相関係数",
+      "線形関係",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が0のとき、2つの変数の間に線形関係がないことを意味します。",
+      "ただし、相関係数は線形関係のみを捉える指標であり、非線形な関係が存在する可能性は残ります。",
+      "例えば、U字型の関係などは相関係数が0に近くても強い関係を持つことがあります。",
+      "そのため、相関係数だけで関係性を判断せず、散布図などで形を確認することが重要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 223,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数の値の範囲は？",
     "choices": [
       "0〜1",
@@ -5694,13 +5838,26 @@
       "-∞〜∞",
       "0〜100"
     ],
-    "answer": 1,
-    "explanation": "相関係数は-1〜1の範囲を取る。"
+    "answer": "-1〜1",
+    "tags": [
+      "相関係数",
+      "範囲",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数は -1〜1 の範囲を取り、値の大きさと符号で関係の強さと向きを表します。",
+      "-1は完全な負の線形関係、1は完全な正の線形関係、0は線形関係がないことを意味します。",
+      "絶対値が大きいほど線形関係が強く、0.7以上や-0.7以下は強い相関と解釈されることが多いです。",
+      "この範囲を理解することで、相関係数の値を直感的に評価しやすくなります。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 224,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が-0.9のとき、正しい解釈は？",
     "choices": [
       "強い正の線形関係",
@@ -5708,13 +5865,26 @@
       "強い負の線形関係",
       "線形関係がない"
     ],
-    "answer": 2,
-    "explanation": "-0.9は強い負の線形関係を示す。"
+    "answer": "強い負の線形関係",
+    "tags": [
+      "相関係数",
+      "負の相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が-0.9のとき、2つの変数の間に強い負の線形関係があると解釈されます。",
+      "負の相関では、一方が増えると他方が減る傾向があり、-0.9はその関係が非常に強いことを示します。",
+      "散布図では右下方向に点が密集し、ほぼ直線状に並ぶ形が観察されます。",
+      "ただし、相関係数は因果関係を示さないため、原因と結果の判断には別途検討が必要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 225,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が高いときに誤って推論しやすいことは？",
     "choices": [
       "因果関係があると誤解する",
@@ -5722,13 +5892,26 @@
       "データ数が多いと誤解する",
       "標準偏差が大きいと誤解する"
     ],
-    "answer": 0,
-    "explanation": "相関は因果を意味しない。"
+    "answer": "因果関係があると誤解する",
+    "tags": [
+      "相関",
+      "因果関係",
+      "疑似相関"
+    ],
+    "explanation_layers": [
+      "相関係数が高いときに最も誤解されやすいのは「因果関係がある」と決めつけてしまうことです。",
+      "相関はあくまで同時に変動する傾向を示すだけであり、原因と結果を特定するものではありません。",
+      "例えば、アイスの売上と水難事故件数の相関は高くても、両者の原因は気温という第三の変数です。",
+      "このような擬似相関を避けるためには、実験デザインや因果推論の枠組みが必要になります。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 226,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が0.3のとき、一般的な解釈は？",
     "choices": [
       "強い正の相関",
@@ -5736,13 +5919,26 @@
       "強い負の相関",
       "相関なし"
     ],
-    "answer": 1,
-    "explanation": "0.3は弱い正の相関とされる。"
+    "answer": "弱い正の相関",
+    "tags": [
+      "相関係数",
+      "弱い相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が0.3のとき、一般的には弱い正の相関があると解釈されます。",
+      "正の相関なので、片方が増えるともう片方も増える傾向はありますが、その関係はそれほど強くありません。",
+      "散布図では右上方向の傾向は見えるものの、点のばらつきも大きくなります。",
+      "弱い相関では、予測や説明に使う際に慎重な判断が必要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 227,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が0.95と非常に高いときに疑うべきことは？",
     "choices": [
       "外れ値の存在",
@@ -5750,13 +5946,26 @@
       "標本平均が高い",
       "標準偏差が小さい"
     ],
-    "answer": 0,
-    "explanation": "外れ値が相関係数を極端に高くすることがある。"
+    "answer": "外れ値の存在",
+    "tags": [
+      "相関係数",
+      "外れ値",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が0.95のように非常に高い場合、まず外れ値の影響を疑うことが重要です。",
+      "少数の極端な値が散布図の形を強く歪め、相関係数を不自然に高くすることがあります。",
+      "外れ値を除いて再計算すると、相関係数が大きく変化するケースも少なくありません。",
+      "そのため、高い相関係数を見たら、必ず散布図で外れ値の有無を確認するべきです。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 228,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "ピアソンの相関係数が適用できないケースは？",
     "choices": [
       "線形関係がある",
@@ -5764,13 +5973,26 @@
       "非線形関係である",
       "外れ値がない"
     ],
-    "answer": 2,
-    "explanation": "ピアソン相関は線形関係を前提とするため、非線形では適用できない。"
+    "answer": "非線形関係である",
+    "tags": [
+      "ピアソン相関",
+      "線形関係",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "ピアソンの相関係数は、2つの連続変数の線形関係を測る指標です。",
+      "そのため、関係が明らかに非線形である場合には、ピアソン相関は適切な指標とは言えません。",
+      "非線形な関係では、相関係数が低くても強い関係が存在することがあります。",
+      "このような場合は、スピアマンの順位相関や散布図による視覚的な確認が有効です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 229,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "スピアマンの順位相関が適しているケースは？",
     "choices": [
       "非線形関係",
@@ -5778,13 +6000,26 @@
       "外れ値が多い場合",
       "標本数が多い場合"
     ],
-    "answer": 0,
-    "explanation": "スピアマン相関は順位を使うため、非線形関係にも対応できる。"
+    "answer": "非線形関係",
+    "tags": [
+      "スピアマン相関",
+      "順位相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "スピアマンの順位相関係数は、データの順位に基づいて相関を測る指標です。",
+      "単調増加・単調減少のような非線形関係でも、順位情報を使うことで関係の強さを捉えることができます。",
+      "外れ値の影響もピアソン相関より小さく、ロバストな指標として利用されます。",
+      "連続値だけでなく順序尺度にも適用できるため、実務で使いやすい相関指標の一つです。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 230,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が高いのに散布図が非線形のとき、何が起きている可能性が高い？",
     "choices": [
       "外れ値が相関を高めている",
@@ -5792,13 +6027,26 @@
       "標本数が少ない",
       "標準偏差が小さい"
     ],
-    "answer": 1,
-    "explanation": "指数関数的な非線形関係でも相関係数が高くなることがある。"
+    "answer": "データが指数的に増加している",
+    "tags": [
+      "相関係数",
+      "非線形関係",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が高いにもかかわらず散布図が非線形な場合、指数関数的な増加などの非線形関係が存在している可能性があります。",
+      "ピアソン相関は線形性を前提としますが、単調な非線形関係でも高い値を取ることがあります。",
+      "このような状況では、回帰直線による説明力が低く、決定係数が期待ほど高くならないことがあります。",
+      "非線形モデルや対数変換などを検討し、関係の形に合った分析手法を選ぶことが重要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 231,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が0.7のとき、散布図の特徴として最も適切なのは？",
     "choices": [
       "点が右上方向にまとまる",
@@ -5806,13 +6054,26 @@
       "点が円形に広がる",
       "点がランダムに散らばる"
     ],
-    "answer": 0,
-    "explanation": "正の相関では右上方向に点がまとまる。"
+    "answer": "点が右上方向にまとまる",
+    "tags": [
+      "散布図",
+      "正の相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が0.7のとき、散布図では点が右上方向にまとまる傾向が強く見られます。",
+      "完全な直線ではないものの、明確な右上がりのパターンが確認できます。",
+      "中〜強程度の正の相関として、予測や説明にある程度利用できる関係です。",
+      "散布図を確認することで、外れ値や非線形性の有無も併せて判断できます。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 232,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が-0.2のとき、一般的な解釈は？",
     "choices": [
       "弱い負の相関",
@@ -5820,13 +6081,26 @@
       "弱い正の相関",
       "相関なし"
     ],
-    "answer": 0,
-    "explanation": "-0.2は弱い負の相関とされる。"
+    "answer": "弱い負の相関",
+    "tags": [
+      "相関係数",
+      "負の相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が-0.2のとき、一般的には弱い負の相関があると解釈されます。",
+      "負の相関なので、一方が増えると他方が減る傾向はありますが、その強さは小さいです。",
+      "散布図では右下方向の傾向がわずかに見える程度で、ばらつきも大きくなります。",
+      "弱い相関では、実務上の意思決定に使う際に慎重な検討が必要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 233,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が高いときに注意すべき「疑似相関」とは何か？",
     "choices": [
       "第三の変数が影響している",
@@ -5834,13 +6108,26 @@
       "標本平均が高い",
       "標準偏差が小さい"
     ],
-    "answer": 0,
-    "explanation": "疑似相関は第三の変数が両者に影響している場合に起こる。"
+    "answer": "第三の変数が影響している",
+    "tags": [
+      "疑似相関",
+      "因果関係",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "疑似相関とは、2つの変数の間に高い相関が見られるものの、実際には第三の変数が両者に影響している状況を指します。",
+      "例えば、アイスの売上と水難事故件数の相関は高いですが、両者の原因は気温という共通の要因です。",
+      "このような場合、2つの変数間に直接の因果関係はなく、相関だけを見て因果を判断すると誤った結論になります。",
+      "疑似相関を避けるためには、背景要因や交絡因子を考慮した分析が必要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 234,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が0.5のとき、散布図の特徴として最も適切なのは？",
     "choices": [
       "弱い右上方向の傾向",
@@ -5848,13 +6135,26 @@
       "右下方向の傾向",
       "完全にランダム"
     ],
-    "answer": 0,
-    "explanation": "0.5は中程度の正の相関を示す。"
+    "answer": "弱い右上方向の傾向",
+    "tags": [
+      "散布図",
+      "中程度の相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が0.5のとき、散布図では右上方向の傾向が見られますが、点のばらつきも比較的大きくなります。",
+      "中程度の正の相関として、関係はあるものの予測精度はそれほど高くない場合が多いです。",
+      "直線からのズレも目立つため、線形モデルだけで説明しきれない可能性があります。",
+      "このような相関では、他の変数や非線形性も併せて検討することが重要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 235,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が1になる条件は？",
     "choices": [
       "完全な線形関係",
@@ -5862,13 +6162,26 @@
       "外れ値が多い",
       "標本数が少ない"
     ],
-    "answer": 0,
-    "explanation": "相関係数1は完全な正の線形関係を示す。"
+    "answer": "完全な線形関係",
+    "tags": [
+      "相関係数",
+      "完全相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が1になるのは、2つの変数の間に完全な正の線形関係がある場合です。",
+      "散布図では全ての点が1本の直線上に並び、誤差が一切存在しません。",
+      "現実のデータで相関係数が1になることはほとんどなく、非常に高い値が出た場合はデータの確認が必要です。",
+      "完全相関は理論的な基準として理解しておくと、他の相関値の解釈がしやすくなります。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 236,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が-1になる条件は？",
     "choices": [
       "完全な負の線形関係",
@@ -5876,13 +6189,26 @@
       "外れ値が多い",
       "標本数が少ない"
     ],
-    "answer": 0,
-    "explanation": "相関係数-1は完全な負の線形関係を示す。"
+    "answer": "完全な負の線形関係",
+    "tags": [
+      "相関係数",
+      "完全相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が-1になるのは、2つの変数の間に完全な負の線形関係がある場合です。",
+      "散布図では全ての点が右下がりの直線上に並び、誤差が一切存在しません。",
+      "現実のデータで相関係数が-1になることもほとんどなく、極端な値が出た場合は外れ値やデータ処理の確認が必要です。",
+      "完全な負の線形関係は理論的な基準として理解しておくと、負の相関の強さを評価しやすくなります。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 237,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が高いのに回帰分析の決定係数が低い場合、何が起きている？",
     "choices": [
       "非線形関係が強い",
@@ -5890,13 +6216,26 @@
       "標本平均が高い",
       "標準偏差が小さい"
     ],
-    "answer": 0,
-    "explanation": "非線形関係では相関係数が高くても決定係数が低くなる。"
+    "answer": "非線形関係が強い",
+    "tags": [
+      "相関係数",
+      "決定係数",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が高いのに決定係数が低い場合、データに強い非線形関係が存在している可能性があります。",
+      "ピアソン相関は線形性を前提とするため、単調な非線形関係でも高い値を取ることがあります。",
+      "一方、線形回帰モデルの決定係数は、直線による説明力を評価するため、非線形な部分はうまく説明できません。",
+      "このような場合は、非線形回帰や変数変換を検討し、モデルの形をデータに合わせる必要があります。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 238,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が0.1のとき、一般的な解釈は？",
     "choices": [
       "ほぼ相関なし",
@@ -5904,13 +6243,26 @@
       "中程度の相関",
       "強い相関"
     ],
-    "answer": 0,
-    "explanation": "0.1はほぼ相関なしとされる。"
+    "answer": "ほぼ相関なし",
+    "tags": [
+      "相関係数",
+      "弱い相関",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が0.1のとき、一般的にはほぼ相関なしと解釈されます。",
+      "わずかな正の傾向はあるものの、実務上は無視できる程度の関係であることが多いです。",
+      "散布図では点がほぼランダムに散らばり、明確な傾向は見えにくくなります。",
+      "このような相関では、他の変数や要因を検討する方が有益な場合が多いです。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 239,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が高いときに必ずしも予測精度が高くならない理由は？",
     "choices": [
       "非線形関係がある可能性",
@@ -5918,13 +6270,26 @@
       "標本平均が高い",
       "標準偏差が小さい"
     ],
-    "answer": 0,
-    "explanation": "非線形関係では相関が高くても予測精度が低いことがある。"
+    "answer": "非線形関係がある可能性",
+    "tags": [
+      "相関係数",
+      "予測精度",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が高くても、関係が非線形である場合には線形モデルの予測精度が高くならないことがあります。",
+      "ピアソン相関は線形性を前提としているため、非線形な部分はうまく捉えられません。",
+      "その結果、相関係数は高くても回帰モデルの残差が大きくなり、予測誤差が増えることがあります。",
+      "予測精度を高めるには、関係の形に合ったモデル選択や変数変換が重要です。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
   {
     "id": 240,
-    "category": "統計基礎",
-    "sub_category": "correlation",
+    "category": "統計学",
+    "subcategory": "相関分析",
+    "concept_id": "stats_correlation",
     "question": "相関係数が高いときに散布図を確認する理由は？",
     "choices": [
       "非線形関係や外れ値を確認するため",
@@ -5932,13 +6297,27 @@
       "標本平均を確認するため",
       "標準偏差を確認するため"
     ],
-    "answer": 0,
-    "explanation": "散布図は非線形関係や外れ値の影響を確認するために重要。"
+    "answer": "非線形関係や外れ値を確認するため",
+    "tags": [
+      "散布図",
+      "外れ値",
+      "統計学"
+    ],
+    "explanation_layers": [
+      "相関係数が高いときに散布図を確認する主な理由は、非線形関係や外れ値の有無をチェックするためです。",
+      "数値だけでは関係の形や外れ値の影響を把握できないため、視覚的な確認が不可欠です。",
+      "散布図を見ることで、指数的な増加やクラスター構造など、相関係数では捉えきれない特徴が分かります。",
+      "統計分析では、相関係数と散布図をセットで解釈することが推奨されます。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "correlation"
   },
+
   {
     "id": 241,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
     "question": "平均値の特徴として正しいものはどれか？",
     "choices": [
       "外れ値の影響を受けやすい",
@@ -5946,13 +6325,22 @@
       "中央値より常に大きい",
       "最頻値より常に小さい"
     ],
-    "answer": 0,
-    "explanation": "平均値は外れ値の影響を強く受ける代表値である。"
+    "answer": "外れ値の影響を受けやすい",
+    "tags": ["平均値", "代表値", "外れ値"],
+    "explanation_layers": [
+      "平均値はすべての値を合計して個数で割るため、極端な値の影響を強く受ける。",
+      "例えば年収データでは、一部の高所得者が平均値を大きく押し上げる。",
+      "そのため、外れ値が多い分布では平均値は中心を正しく表さないことがある。",
+      "外れ値が少なく対称な分布では、平均値は代表値として有効である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 242,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
     "question": "中央値の特徴として正しいものはどれか？",
     "choices": [
       "外れ値の影響を受けやすい",
@@ -5960,97 +6348,150 @@
       "平均値より常に大きい",
       "最頻値より常に小さい"
     ],
-    "answer": 1,
-    "explanation": "中央値は外れ値の影響を受けにくい代表値である。"
+    "answer": "外れ値の影響を受けにくい",
+    "tags": ["中央値", "代表値", "外れ値"],
+    "explanation_layers": [
+      "中央値は順位情報のみを使うため、極端な値が追加されても大きく変化しない。",
+      "例えば年収データで一部の高所得者がいても中央値はほぼ変わらない。",
+      "外れ値が多い分布では中央値の方が中心を安定して表す。",
+      "所得や地価など外れ値が多い分野で中央値がよく使われる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 243,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "最頻値（mode）の特徴として正しいものは？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "最頻値（Mode）の特徴として正しいものはどれか？",
     "choices": [
       "連続値でも必ず存在する",
       "最も頻度の高い値である",
       "平均値と常に一致する",
       "中央値と常に一致する"
     ],
-    "answer": 1,
-    "explanation": "最頻値は最も頻度の高い値を表す。"
+    "answer": "最も頻度の高い値である",
+    "tags": ["最頻値", "代表値", "カテゴリデータ"],
+    "explanation_layers": [
+      "最頻値はデータの中で最も頻繁に出現する値を表す。",
+      "カテゴリデータでは「最も多いカテゴリ」を示すため有効である。",
+      "連続値では最頻値が明確に定まらない場合や複数存在する場合がある。",
+      "分布の形によって平均値や中央値と一致しないことが多い。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 244,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "平均値 > 中央値 > 最頻値 となる分布の形は？",
+    "category": "統計学",
+    "subcategory": "分布と歪み",
+    "concept_id": "stats_distribution",
+    "question": "平均値 > 中央値 > 最頻値 となる分布の形はどれか？",
     "choices": [
       "右に歪んだ分布（右裾が長い）",
       "左に歪んだ分布（左裾が長い）",
       "正規分布",
       "一様分布"
     ],
-    "answer": 0,
-    "explanation": "右に歪んだ分布では平均値が最も大きくなる傾向がある。"
+    "answer": "右に歪んだ分布（右裾が長い）",
+    "tags": ["歪度", "右歪み", "代表値"],
+    "explanation_layers": [
+      "右に歪んだ分布では大きい値が存在し、平均値が右方向に引き上げられる。",
+      "中央値は平均値より小さく、最頻値はさらに小さい傾向がある。",
+      "所得や売上など、一部の非常に大きな値が含まれるデータでよく見られる。",
+      "代表値の関係から分布の歪み方向を推測できる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
   },
   {
     "id": 245,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "中央値 > 平均値 となる分布の形は？",
+    "category": "統計学",
+    "subcategory": "分布と歪み",
+    "concept_id": "stats_distribution",
+    "question": "中央値 > 平均値 となる分布の形はどれか？",
     "choices": [
       "右に歪んだ分布",
       "左に歪んだ分布",
       "正規分布",
       "一様分布"
     ],
-    "answer": 1,
-    "explanation": "左に歪んだ分布では中央値が平均値より大きくなる。"
+    "answer": "左に歪んだ分布",
+    "tags": ["歪度", "左歪み", "代表値"],
+    "explanation_layers": [
+      "左に歪んだ分布では極端に小さい値が平均値を左方向に引き下げる。",
+      "中央値は平均値より大きくなる傾向がある。",
+      "テストの得点分布で一部の非常に低い得点がある場合などに見られる。",
+      "代表値の関係から分布の歪み方向を判断できる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
   },
   {
     "id": 246,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "データが {3, 5, 7, 9, 11} のとき、中央値は？",
-    "choices": [
-      "5",
-      "7",
-      "9",
-      "3"
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "データが {3, 5, 7, 9, 11} のとき、中央値はどれか？",
+    "choices": ["5", "7", "9", "3"],
+    "answer": "7",
+    "tags": ["中央値", "計算問題", "代表値"],
+    "explanation_layers": [
+      "データは昇順に並んでおり、要素数は5（奇数）である。",
+      "中央値は中央の3番目の値となる。",
+      "3番目の値は7である。",
+      "したがって中央値は7となる。"
     ],
-    "answer": 1,
-    "explanation": "中央値は中央の値であるため7。"
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 247,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "データが {2, 4, 6, 8} のとき、中央値は？",
-    "choices": [
-      "4",
-      "5",
-      "6",
-      "7"
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "データが {2, 4, 6, 8} のとき、中央値はどれか？",
+    "choices": ["4", "5", "6", "7"],
+    "answer": "5",
+    "tags": ["中央値", "計算問題", "代表値"],
+    "explanation_layers": [
+      "データは昇順で要素数は4（偶数）である。",
+      "中央値は中央2つの値の平均を取る。",
+      "中央の値は4と6である。",
+      "したがって中央値は (4+6)/2 = 5 となる。"
     ],
-    "answer": 1,
-    "explanation": "中央値は中央2つの平均であり、(4+6)/2 = 5。"
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 248,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "平均値が中央値より大きくなる典型的な状況は？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "平均値が中央値より大きくなる典型的な状況はどれか？",
     "choices": [
       "外れ値が小さい方向にある",
       "外れ値が大きい方向にある",
-      "データが完全に対称",
+      "データが完全に対称である",
       "最頻値が複数ある"
     ],
-    "answer": 1,
-    "explanation": "大きい外れ値があると平均値が引き上げられる。"
+    "answer": "外れ値が大きい方向にある",
+    "tags": ["平均値", "中央値", "外れ値"],
+    "explanation_layers": [
+      "平均値は極端に大きい値があると右方向に引き上げられる。",
+      "中央値は順位情報に基づくため外れ値の影響を受けにくい。",
+      "所得や売上など、一部の非常に大きな値が存在するデータでよく見られる。",
+      "この関係から分布の右側に外れ値がある可能性を推測できる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 249,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
     "question": "最頻値が複数存在する分布を何と呼ぶか？",
     "choices": [
       "単峰分布",
@@ -6058,111 +6499,183 @@
       "多峰分布",
       "一様分布"
     ],
-    "answer": 2,
-    "explanation": "最頻値が複数ある場合は多峰分布と呼ぶ。"
+    "answer": "多峰分布",
+    "tags": ["最頻値", "多峰性", "分布"],
+    "explanation_layers": [
+      "最頻値が1つの分布は単峰分布、2つなら双峰分布と呼ばれる。",
+      "最頻値が3つ以上存在する場合は多峰分布と呼ばれる。",
+      "複数のグループが混ざったデータで多峰性が現れることがある。",
+      "多峰分布では単一の代表値だけでは特徴を捉えにくい。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 250,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "平均値が中央値と一致する典型的な分布は？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "平均値が中央値と一致する典型的な分布はどれか？",
     "choices": [
       "正規分布",
       "右に歪んだ分布",
       "左に歪んだ分布",
       "多峰分布"
     ],
-    "answer": 0,
-    "explanation": "正規分布では平均値・中央値・最頻値が一致する。"
+    "answer": "正規分布",
+    "tags": ["正規分布", "代表値", "対称性"],
+    "explanation_layers": [
+      "正規分布は左右対称なベル型の分布である。",
+      "対称性により平均値・中央値・最頻値が一致する。",
+      "多くの統計モデルは正規分布を前提としている。",
+      "実データが正規分布に近い場合、平均値を代表値として用いることが妥当である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 251,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "平均値が最も適切な代表値となる状況は？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "平均値が最も適切な代表値となる状況はどれか？",
     "choices": [
       "外れ値が多い場合",
       "データが対称で外れ値が少ない場合",
       "データが非線形の場合",
       "データがカテゴリの場合"
     ],
-    "answer": 1,
-    "explanation": "平均値は対称で外れ値が少ない場合に適切。"
+    "answer": "データが対称で外れ値が少ない場合",
+    "tags": ["平均値", "代表値", "分布の形"],
+    "explanation_layers": [
+      "平均値はすべての値を均等に反映するため、対称で外れ値が少ない分布で中心をよく表す。",
+      "正規分布に近いデータでは平均値が自然な代表値となる。",
+      "外れ値が多い場合は平均値が歪むため中央値の方が適切になる。",
+      "連続値で対称な分布を扱う場面で平均値はよく使われる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 252,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "中央値が最も適切な代表値となる状況は？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "中央値が最も適切な代表値となる状況はどれか？",
     "choices": [
       "外れ値が多い場合",
       "データが対称の場合",
       "データがカテゴリの場合",
       "データが一様分布の場合"
     ],
-    "answer": 0,
-    "explanation": "中央値は外れ値の影響を受けにくいため外れ値が多い場合に適切。"
+    "answer": "外れ値が多い場合",
+    "tags": ["中央値", "外れ値", "代表値"],
+    "explanation_layers": [
+      "中央値は順位情報のみを使うため、極端な値の影響を受けにくい。",
+      "外れ値が多いデータでは平均値より中央値の方が中心を安定して示す。",
+      "所得や地価など外れ値が頻繁に現れる分野で中央値がよく使われる。",
+      "分布の歪みが大きい場合も中央値は直感的な「真ん中」を表す指標として有効である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 253,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "最頻値が最も適切な代表値となる状況は？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "最頻値が最も適切な代表値となる状況はどれか？",
     "choices": [
       "連続値のデータ",
       "カテゴリデータ",
       "外れ値が多い場合",
       "データが対称の場合"
     ],
-    "answer": 1,
-    "explanation": "最頻値はカテゴリデータで最も有効。"
+    "answer": "カテゴリデータ",
+    "tags": ["最頻値", "カテゴリデータ", "代表値"],
+    "explanation_layers": [
+      "最頻値は最も頻繁に出現する値を示すため、カテゴリデータの代表値として有効である。",
+      "平均値や中央値が定義できない場合でも最頻値は使える。",
+      "カテゴリ数が多い場合は最頻値だけでなく分布全体の確認も重要である。",
+      "カテゴリデータの典型的な傾向を把握する際に最頻値は有用である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 254,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "データの範囲（range）はどのように計算するか？",
+    "category": "統計学",
+    "subcategory": "散布度",
+    "concept_id": "stats_variability",
+    "question": "データの範囲（Range）はどのように計算するか？",
     "choices": [
       "最大値 − 最小値",
       "平均値 − 最小値",
       "中央値 − 最小値",
       "最頻値 − 最小値"
     ],
-    "answer": 0,
-    "explanation": "範囲は最大値と最小値の差である。"
+    "answer": "最大値 − 最小値",
+    "tags": ["範囲", "散布度", "統計学"],
+    "explanation_layers": [
+      "範囲（Range）はデータの最大値と最小値の差として定義される。",
+      "散布度の中で最も単純な指標である。",
+      "外れ値の影響を強く受けるため、他の散布度指標と併用することが多い。",
+      "データの広がりを直感的に把握する際に有効である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "variability"
   },
   {
     "id": 255,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "データが {10, 20, 30, 40, 100} のとき、平均値は？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "データが {10, 20, 30, 40, 100} のとき、平均値はどれか？",
     "choices": [
       "40",
       "50",
       "60",
       "200"
     ],
-    "answer": 1,
-    "explanation": "(10+20+30+40+100)/5 = 200/5 = 40。"
+    "answer": "40",
+    "tags": ["平均値", "計算問題", "代表値"],
+    "explanation_layers": [
+      "平均値はすべての値の合計を個数で割ることで求められる。",
+      "このデータの合計は 10 + 20 + 30 + 40 + 100 = 200 である。",
+      "要素数は 5 なので、平均値は 200 ÷ 5 = 40 となる。",
+      "平均値は分布の中心を示すが、外れ値（100）の影響を受けている点に注意が必要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 256,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "データが {10, 20, 30, 40, 100} のとき、中央値は？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "データが {10, 20, 30, 40, 100} のとき、中央値はどれか？",
     "choices": [
       "20",
       "30",
       "40",
       "100"
     ],
-    "answer": 1,
-    "explanation": "中央値は中央の値であるため30。"
+    "answer": "30",
+    "tags": ["中央値", "計算問題", "代表値"],
+    "explanation_layers": [
+      "中央値はデータを昇順に並べたときの中央の値である。",
+      "このデータはすでに昇順で、要素数は 5（奇数）である。",
+      "中央の 3 番目の値は 30 である。",
+      "中央値は外れ値の影響を受けにくく、分布の中心を安定して示す。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 257,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
     "question": "平均値と中央値の差が大きいとき、何が疑われるか？",
     "choices": [
       "外れ値の存在",
@@ -6170,55 +6683,91 @@
       "標本平均が高い",
       "標準偏差が小さい"
     ],
-    "answer": 0,
-    "explanation": "平均値は外れ値の影響を受けるため、差が大きいと外れ値が疑われる。"
+    "answer": "外れ値の存在",
+    "tags": ["外れ値", "平均値", "中央値"],
+    "explanation_layers": [
+      "平均値は極端な値の影響を強く受けるため、外れ値があると大きく変動する。",
+      "中央値は順位情報に基づくため、外れ値の影響を受けにくい。",
+      "そのため平均値と中央値の差が大きい場合、外れ値が存在する可能性が高い。",
+      "分布の歪みや外れ値の有無を判断する際に、平均値と中央値の差は重要な指標となる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 258,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "平均値・中央値・最頻値が一致する分布は？",
+    "category": "統計学",
+    "subcategory": "代表値",
+    "concept_id": "stats_central_tendency",
+    "question": "平均値・中央値・最頻値が一致する分布はどれか？",
     "choices": [
       "正規分布",
       "右に歪んだ分布",
       "左に歪んだ分布",
       "多峰分布"
     ],
-    "answer": 0,
-    "explanation": "正規分布では3つの代表値が一致する。"
+    "answer": "正規分布",
+    "tags": ["正規分布", "代表値", "対称性"],
+    "explanation_layers": [
+      "正規分布は左右対称なベル型の分布である。",
+      "対称性により平均値・中央値・最頻値がすべて同じ値になる。",
+      "この性質は正規分布の重要な特徴であり、多くの統計モデルの前提となる。",
+      "実データが正規分布に近い場合、平均値を代表値として用いることが妥当である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "central_tendency"
   },
   {
     "id": 259,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "平均値が中央値より大きいとき、分布はどうなっている可能性が高い？",
+    "category": "統計学",
+    "subcategory": "分布と歪み",
+    "concept_id": "stats_distribution",
+    "question": "平均値が中央値より大きいとき、分布はどうなっている可能性が高いか？",
     "choices": [
       "右に歪んでいる",
       "左に歪んでいる",
       "対称である",
       "多峰である"
     ],
-    "answer": 0,
-    "explanation": "右に歪んだ分布では平均値が中央値より大きくなる。"
+    "answer": "右に歪んでいる",
+    "tags": ["歪度", "右歪み", "代表値"],
+    "explanation_layers": [
+      "平均値が中央値より大きい場合、分布の右側に大きな値が存在している可能性が高い。",
+      "右に歪んだ分布では、外れ値が平均値を右方向に引き上げる。",
+      "中央値は外れ値の影響を受けにくいため、平均値との差が歪みの指標となる。",
+      "所得や売上など、一部の非常に大きな値が含まれるデータでよく見られる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
   },
   {
     "id": 260,
-    "category": "統計基礎",
-    "sub_category": "representative_value",
-    "question": "中央値が平均値より大きいとき、分布はどうなっている可能性が高い？",
+    "category": "統計学",
+    "subcategory": "分布と歪み",
+    "concept_id": "stats_distribution",
+    "question": "中央値が平均値より大きいとき、分布はどうなっている可能性が高いか？",
     "choices": [
       "右に歪んでいる",
       "左に歪んでいる",
       "対称である",
       "多峰である"
     ],
-    "answer": 1,
-    "explanation": "左に歪んだ分布では中央値が平均値より大きくなる。"
+    "answer": "左に歪んでいる",
+    "tags": ["歪度", "左歪み", "代表値"],
+    "explanation_layers": [
+      "中央値が平均値より大きい場合、分布の左側に極端に小さい値が存在している可能性が高い。",
+      "左に歪んだ分布では、小さい外れ値が平均値を左方向に引き下げる。",
+      "中央値は外れ値の影響を受けにくいため、平均値との差から歪み方向を判断できる。",
+      "テストの得点分布など、一部の非常に低い値がある場合に見られる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
   },
   {
     "id": 261,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "Accuracy（正解率）の正しい定義はどれか？",
     "choices": [
       "TP / (TP + FP)",
@@ -6226,13 +6775,22 @@
       "TP / (TP + FN)",
       "FP / (FP + TN)"
     ],
-    "answer": 1,
-    "explanation": "Accuracyは全体の中で正しく分類できた割合。"
+    "answer": "(TP + TN) / (TP + TN + FP + FN)",
+    "tags": ["Accuracy", "評価指標", "混同行列"],
+    "explanation_layers": [
+      "Accuracyは全体の中で正しく分類できた割合を示す指標である。",
+      "TP（真陽性）とTN（真陰性）の合計を全体で割ることで求められる。",
+      "データが均衡している場合には有効な指標となる。",
+      "ただし不均衡データでは高いAccuracyでも性能が悪い場合があるため注意が必要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 262,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "Precision（適合率）の正しい定義はどれか？",
     "choices": [
       "TP / (TP + FP)",
@@ -6240,13 +6798,22 @@
       "(TP + TN) / 全体",
       "FP / (FP + TN)"
     ],
-    "answer": 0,
-    "explanation": "Precisionは予測陽性のうち正しく陽性だった割合。"
+    "answer": "TP / (TP + FP)",
+    "tags": ["Precision", "適合率", "混同行列"],
+    "explanation_layers": [
+      "Precisionは予測陽性のうち、実際に陽性だった割合を示す指標である。",
+      "FP（偽陽性）が多いとPrecisionは低下する。",
+      "誤検出を避けたい場面で重要となる指標である。",
+      "医療診断や不正検知など、誤検出のコストが高い領域で重視される。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 263,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "Recall（再現率）の正しい定義はどれか？",
     "choices": [
       "TP / (TP + FP)",
@@ -6254,13 +6821,22 @@
       "(TP + TN) / 全体",
       "FN / (TP + FN)"
     ],
-    "answer": 1,
-    "explanation": "Recallは実際の陽性のうち正しく陽性と予測できた割合。"
+    "answer": "TP / (TP + FN)",
+    "tags": ["Recall", "再現率", "混同行列"],
+    "explanation_layers": [
+      "Recallは実際の陽性のうち、正しく陽性と予測できた割合を示す指標である。",
+      "FN（偽陰性）が多いとRecallは低下する。",
+      "陽性を見逃したくない場面で重要となる指標である。",
+      "医療診断や障害検知など、見逃しのコストが高い領域で重視される。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 264,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "F1スコアの正しい定義はどれか？",
     "choices": [
       "Precision + Recall",
@@ -6268,13 +6844,22 @@
       "2 × (Precision × Recall) / (Precision + Recall)",
       "(Precision + Recall) / 2"
     ],
-    "answer": 2,
-    "explanation": "F1は調和平均であり、PrecisionとRecallのバランスを見る指標。"
+    "answer": "2 × (Precision × Recall) / (Precision + Recall)",
+    "tags": ["F1スコア", "調和平均", "評価指標"],
+    "explanation_layers": [
+      "F1スコアはPrecisionとRecallの調和平均である。",
+      "両者のバランスを評価するための指標として用いられる。",
+      "PrecisionとRecallのどちらかが極端に低いとF1も低くなる。",
+      "不均衡データでモデル性能を評価する際に有効である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 265,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "混同行列でFP（False Positive）はどれか？",
     "choices": [
       "陽性を陽性と予測した",
@@ -6282,13 +6867,22 @@
       "陽性を陰性と予測した",
       "陰性を陰性と予測した"
     ],
-    "answer": 1,
-    "explanation": "FPは陰性を誤って陽性と予測したケース。"
+    "answer": "陰性を陽性と予測した",
+    "tags": ["FP", "混同行列", "分類誤差"],
+    "explanation_layers": [
+      "FP（偽陽性）は、実際は陰性なのに陽性と誤って予測したケースである。",
+      "FPが多いとPrecisionが低下する。",
+      "誤検出のコストが高い場面ではFPを減らすことが重要となる。",
+      "混同行列は分類モデルの誤りの種類を理解するために重要なツールである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 266,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "AUC（Area Under the Curve）は何を表す指標か？",
     "choices": [
       "ROC曲線の下の面積",
@@ -6296,13 +6890,22 @@
       "Accuracyの平均値",
       "F1スコアの最大値"
     ],
-    "answer": 0,
-    "explanation": "AUCはROC曲線の下の面積で、分類性能の総合評価に使われる。"
+    "answer": "ROC曲線の下の面積",
+    "tags": ["AUC", "ROC", "評価指標"],
+    "explanation_layers": [
+      "AUCはROC曲線の下の面積を表す指標である。",
+      "0〜1の値を取り、1に近いほど分類性能が高い。",
+      "閾値に依存しない総合的な性能評価が可能である。",
+      "不均衡データでも比較的安定した評価ができる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 267,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "ROC曲線の縦軸は何を表すか？",
     "choices": [
       "False Positive Rate",
@@ -6310,13 +6913,22 @@
       "Precision",
       "Recall"
     ],
-    "answer": 1,
-    "explanation": "ROC曲線の縦軸はTPR（True Positive Rate）。"
+    "answer": "True Positive Rate",
+    "tags": ["ROC", "TPR", "評価指標"],
+    "explanation_layers": [
+      "ROC曲線の縦軸はTPR（True Positive Rate）である。",
+      "TPRはRecallと同義で、陽性を正しく検出できた割合を示す。",
+      "モデルの感度を評価する際に重要な指標である。",
+      "ROC曲線は閾値を変化させたときの性能を視覚化するために用いられる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 268,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "ROC曲線の横軸は何を表すか？",
     "choices": [
       "True Positive Rate",
@@ -6324,69 +6936,114 @@
       "Precision",
       "Recall"
     ],
-    "answer": 1,
-    "explanation": "ROC曲線の横軸はFPR（False Positive Rate）。"
+    "answer": "False Positive Rate",
+    "tags": ["ROC", "FPR", "評価指標"],
+    "explanation_layers": [
+      "ROC曲線の横軸はFPR（False Positive Rate）である。",
+      "FPRは陰性を誤って陽性と予測した割合を示す。",
+      "FPが多いモデルではFPRが高くなる。",
+      "ROC曲線はTPRとFPRの関係を視覚的に理解するために用いられる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 269,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "Precisionが高くRecallが低いモデルの特徴は？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "Precisionが高くRecallが低いモデルの特徴はどれか？",
     "choices": [
       "陽性を見逃しやすい",
       "陽性を誤検出しやすい",
       "陰性を誤検出しやすい",
       "Accuracyが必ず高い"
     ],
-    "answer": 0,
-    "explanation": "Recallが低いと実際の陽性を見逃しやすい。"
+    "answer": "陽性を見逃しやすい",
+    "tags": ["Precision", "Recall", "トレードオフ"],
+    "explanation_layers": [
+      "Precisionが高いモデルは誤検出（FP）が少ない。",
+      "一方、Recallが低い場合は実際の陽性を見逃しやすい（FNが多い）。",
+      "陽性を確実に検出したい場面ではRecallの低さが問題となる。",
+      "PrecisionとRecallは閾値設定によってトレードオフの関係になる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 270,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "Recallが高くPrecisionが低いモデルの特徴は？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "Recallが高くPrecisionが低いモデルの特徴はどれか？",
     "choices": [
       "陽性を誤検出しやすい",
       "陽性を見逃しやすい",
       "Accuracyが必ず低い",
       "F1スコアが必ず高い"
     ],
-    "answer": 0,
-    "explanation": "Precisionが低いと誤検出（FP）が多くなる。"
+    "answer": "陽性を誤検出しやすい",
+    "tags": ["Precision", "Recall", "トレードオフ"],
+    "explanation_layers": [
+      "Recallが高いモデルは陽性を見逃しにくい（FNが少ない）。",
+      "一方、Precisionが低い場合は誤検出（FP）が多くなる。",
+      "誤検出のコストが高い場面ではPrecisionの低さが問題となる。",
+      "PrecisionとRecallのバランスを取るためにF1スコアが用いられる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 271,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "Accuracyが高くても評価が不適切になるケースは？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "Accuracyが高くても評価が不適切になるケースはどれか？",
     "choices": [
       "データが均衡している場合",
       "データが不均衡な場合",
       "Precisionが高い場合",
       "Recallが高い場合"
     ],
-    "answer": 1,
-    "explanation": "不均衡データではAccuracyが高くても性能が悪いことがある。"
+    "answer": "データが不均衡な場合",
+    "tags": ["Accuracy", "不均衡データ", "評価指標"],
+    "explanation_layers": [
+      "不均衡データでは多数派クラスを予測するだけでAccuracyが高くなることがある。",
+      "そのためAccuracyだけではモデル性能を正しく評価できない。",
+      "このような場合はPrecision、Recall、F1などの指標が重要となる。",
+      "不均衡データの評価ではAUCも有効な指標となる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 272,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "FPR（False Positive Rate）の定義は？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "FPR（False Positive Rate）の定義はどれか？",
     "choices": [
       "FP / (FP + TN)",
       "FP / (TP + FP)",
       "FN / (TP + FN)",
       "TN / (TN + FP)"
     ],
-    "answer": 0,
-    "explanation": "FPRは陰性のうち誤って陽性と予測した割合。"
+    "answer": "FP / (FP + TN)",
+    "tags": ["FPR", "混同行列", "評価指標"],
+    "explanation_layers": [
+      "FPRは陰性のうち誤って陽性と予測した割合である。",
+      "FPが多いとFPRは高くなる。",
+      "誤検出のコストが高い場面ではFPRを低く保つことが重要となる。",
+      "ROC曲線の横軸としても用いられる指標である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 273,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "TPR（True Positive Rate）は別名何と呼ばれるか？",
     "choices": [
       "適合率",
@@ -6394,69 +7051,115 @@
       "正解率",
       "誤分類率"
     ],
-    "answer": 1,
-    "explanation": "TPRはRecall（再現率）と同義。"
+    "answer": "再現率",
+    "tags": ["TPR", "Recall", "評価指標"],
+    "explanation_layers": [
+      "TPRは実際の陽性のうち正しく陽性と予測できた割合である。",
+      "TPRはRecall（再現率）と同義である。",
+      "陽性を見逃したくない場面で重要となる指標である。",
+      "ROC曲線の縦軸としても用いられる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 274,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "F1スコアが高いモデルの特徴は？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "F1スコアが高いモデルの特徴はどれか？",
     "choices": [
       "PrecisionとRecallのバランスが良い",
       "Accuracyが必ず高い",
       "AUCが必ず高い",
       "FPが必ず少ない"
     ],
-    "answer": 0,
-    "explanation": "F1はPrecisionとRecallの調和平均であり、バランスの良さを示す。"
+    "answer": "PrecisionとRecallのバランスが良い",
+    "tags": ["F1スコア", "評価指標", "バランス"],
+    "explanation_layers": [
+      "F1スコアはPrecisionとRecallの調和平均である。",
+      "両者のバランスが良いモデルほどF1スコアが高くなる。",
+      "不均衡データではF1スコアが特に有効な評価指標となる。",
+      "PrecisionとRecallのどちらかが極端に低いとF1も低くなる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 275,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "AUCが0.5のモデルの特徴は？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "AUCが0.5のモデルの特徴はどれか？",
     "choices": [
       "ランダム予測と同等",
       "完全に正しい予測",
       "完全に誤った予測",
       "Precisionが高い"
     ],
-    "answer": 0,
-    "explanation": "AUC0.5はランダム予測と同じ性能。"
+    "answer": "ランダム予測と同等",
+    "tags": ["AUC", "ROC", "評価指標"],
+    "explanation_layers": [
+      "AUCが0.5の場合、モデルはランダム予測と同等の性能である。",
+      "TPRとFPRの関係がランダムと同じになる。",
+      "分類性能がほぼないことを意味する。",
+      "モデル改善が必要な状態である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
+
   {
     "id": 276,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "AUCが1.0のモデルの特徴は？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "AUCが1.0のモデルの特徴はどれか？",
     "choices": [
       "完全に正しい分類ができる",
       "完全に誤った分類をする",
       "Precisionが必ず低い",
       "Recallが必ず低い"
     ],
-    "answer": 0,
-    "explanation": "AUC1.0は完全に正しい分類ができるモデル。"
+    "answer": "完全に正しい分類ができる",
+    "tags": ["AUC", "ROC", "評価指標"],
+    "explanation_layers": [
+      "AUCが1.0の場合、モデルはすべての陽性と陰性を完全に正しく分類できる。",
+      "ROC曲線が左上に完全に張り付く形となり、TPR=1かつFPR=0を達成している。",
+      "現実のデータではほぼ起こらず、過学習やデータ漏洩の可能性も疑われる。",
+      "理論上は最高性能を示すが、実務では慎重な検証が必要となる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 277,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "PrecisionとRecallのトレードオフが発生する理由は？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "PrecisionとRecallのトレードオフが発生する理由はどれか？",
     "choices": [
       "閾値の設定によって両者が変化するため",
       "標本数が多いほど変化するため",
       "Accuracyが高いほど変化するため",
       "AUCが低いほど変化するため"
     ],
-    "answer": 0,
-    "explanation": "閾値を変えるとPrecisionとRecallのバランスが変化する。"
+    "answer": "閾値の設定によって両者が変化するため",
+    "tags": ["Precision", "Recall", "トレードオフ"],
+    "explanation_layers": [
+      "分類モデルは予測確率に対して閾値を設定することで陽性・陰性を判定する。",
+      "閾値を下げると陽性判定が増え、Recallは上がるがPrecisionは下がりやすい。",
+      "逆に閾値を上げるとPrecisionは上がるがRecallは下がりやすい。",
+      "このためPrecisionとRecallはトレードオフの関係になり、バランスを取るためにF1スコアが用いられる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 278,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "Recallを最大化したい場合、一般的にどうするか？",
     "choices": [
       "閾値を下げる",
@@ -6464,13 +7167,22 @@
       "FPを増やす",
       "TNを減らす"
     ],
-    "answer": 0,
-    "explanation": "閾値を下げると陽性判定が増え、Recallが上がる。"
+    "answer": "閾値を下げる",
+    "tags": ["Recall", "閾値", "評価指標"],
+    "explanation_layers": [
+      "閾値を下げると陽性判定が増え、実際の陽性を見逃しにくくなるためRecallが上昇する。",
+      "ただし誤検出（FP）が増える可能性があるためPrecisionは低下しやすい。",
+      "Recallを重視する場面では見逃しのコストが高いケースが多い。",
+      "医療診断や障害検知など、見逃しを避けたい領域で有効な戦略である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 279,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
     "question": "Precisionを最大化したい場合、一般的にどうするか？",
     "choices": [
       "閾値を上げる",
@@ -6478,27 +7190,46 @@
       "FNを増やす",
       "TNを減らす"
     ],
-    "answer": 0,
-    "explanation": "閾値を上げると陽性判定が厳しくなり、Precisionが上がる。"
+    "answer": "閾値を上げる",
+    "tags": ["Precision", "閾値", "評価指標"],
+    "explanation_layers": [
+      "閾値を上げると陽性判定が厳しくなり、誤検出（FP）が減るためPrecisionが上昇する。",
+      "ただし実際の陽性を見逃しやすくなるためRecallは低下しやすい。",
+      "誤検出のコストが高い領域ではPrecisionを重視することが多い。",
+      "不正検知やスパム判定など、誤検出を避けたい場面で有効な戦略である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
   {
     "id": 280,
-    "category": "統計基礎",
-    "sub_category": "evaluation_metrics",
-    "question": "不均衡データで最も適切な評価指標は？",
+    "category": "統計学",
+    "subcategory": "評価指標",
+    "concept_id": "stats_metrics",
+    "question": "不均衡データで最も適切な評価指標はどれか？",
     "choices": [
       "Accuracy",
       "PrecisionとRecall",
       "AUC",
       "F1スコア"
     ],
-    "answer": 3,
-    "explanation": "不均衡データではF1やPrecision/Recallが適切。"
+    "answer": "F1スコア",
+    "tags": ["不均衡データ", "F1スコア", "評価指標"],
+    "explanation_layers": [
+      "不均衡データでは多数派クラスを予測するだけでAccuracyが高くなることがある。",
+      "PrecisionとRecallのバランスを評価できるF1スコアが有効である。",
+      "F1は極端なクラス不均衡でも比較的安定した評価が可能である。",
+      "AUCも有効だが、分類のバランスを見るにはF1がより適している場合が多い。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "metrics"
   },
+
   {
     "id": 281,
-    "category": "データ前処理",
-    "sub_category": "processing",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
     "question": "欠損値処理で最も単純な方法はどれか？",
     "choices": [
       "削除する",
@@ -6506,951 +7237,345 @@
       "中央値で補完する",
       "回帰モデルで補完する"
     ],
-    "answer": 0,
-    "explanation": "最も単純な方法は欠損値を削除すること。"
+    "answer": "削除する",
+    "tags": ["欠損値", "前処理", "データ品質"],
+    "explanation_layers": [
+      "欠損値処理の中で最も単純な方法は欠損値を含む行や列を削除することである。",
+      "削除は計算が簡単で実装しやすいが、データ量が減るという欠点がある。",
+      "特に欠損が多い場合は情報損失が大きくなる可能性がある。",
+      "削除は欠損が少ない場合や影響が小さい場合に適した方法である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 282,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "平均値補完が不適切になるケースは？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "平均値補完が不適切になるケースはどれか？",
     "choices": [
       "外れ値が多い場合",
       "データが対称な場合",
       "標本数が多い場合",
       "カテゴリデータの場合"
     ],
-    "answer": 0,
-    "explanation": "平均値は外れ値の影響を受けるため不適切。"
+    "answer": "外れ値が多い場合",
+    "tags": ["欠損補完", "平均値", "外れ値"],
+    "explanation_layers": [
+      "平均値補完は外れ値の影響を強く受けるため、外れ値が多い場合には不適切となる。",
+      "外れ値が平均値を大きく歪めるため、補完値が実際の分布を反映しなくなる。",
+      "中央値補完やモデルによる補完の方が適切な場合が多い。",
+      "平均値補完はデータが対称で外れ値が少ない場合に有効である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 283,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "標準化（standardization）の目的は？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "標準化（standardization）の目的はどれか？",
     "choices": [
       "平均0・標準偏差1に変換する",
       "0〜1にスケーリングする",
       "外れ値を除去する",
       "カテゴリを数値化する"
     ],
-    "answer": 0,
-    "explanation": "標準化は平均0・標準偏差1に変換する処理。"
+    "answer": "平均0・標準偏差1に変換する",
+    "tags": ["標準化", "スケーリング", "前処理"],
+    "explanation_layers": [
+      "標準化はデータを平均0・標準偏差1に変換する処理である。",
+      "特徴量のスケールを揃えることで、モデルが特定の特徴量に偏らないようにする。",
+      "特に距離ベースのモデルや勾配ベースのモデルで効果が大きい。",
+      "標準化は多くの機械学習モデルで一般的に用いられる前処理である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 284,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "正規化（normalization）の目的は？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "正規化（normalization）の目的はどれか？",
     "choices": [
       "平均0・標準偏差1に変換する",
       "0〜1にスケーリングする",
       "外れ値を除去する",
       "カテゴリを数値化する"
     ],
-    "answer": 1,
-    "explanation": "正規化は0〜1にスケーリングする処理。"
+    "answer": "0〜1にスケーリングする",
+    "tags": ["正規化", "スケーリング", "前処理"],
+    "explanation_layers": [
+      "正規化はデータを0〜1の範囲にスケーリングする処理である。",
+      "特徴量の最大値と最小値を基準に変換するため、スケールが統一される。",
+      "距離ベースのモデルでは正規化が特に重要となる。",
+      "正規化は外れ値の影響を受けやすいため注意が必要である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 285,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "外れ値の検出に使われる指標は？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "外れ値の検出に使われる指標はどれか？",
     "choices": [
       "Zスコア",
       "Accuracy",
       "AUC",
       "F1スコア"
     ],
-    "answer": 0,
-    "explanation": "Zスコアは外れ値検出に使われる代表的な指標。"
+    "answer": "Zスコア",
+    "tags": ["外れ値", "Zスコア", "前処理"],
+    "explanation_layers": [
+      "Zスコアはデータが平均からどれだけ離れているかを標準偏差の単位で示す指標である。",
+      "一般にZスコアが3以上（または−3以下）の値は外れ値とみなされることが多い。",
+      "外れ値検出の基本的な方法として広く利用されている。",
+      "分布が正規分布に近い場合に特に有効である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 286,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "カテゴリ変数を数値化する方法として正しいものは？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "カテゴリ変数を数値化する方法として正しいものはどれか？",
     "choices": [
       "One-Hot Encoding",
       "標準化",
       "正規化",
       "外れ値除去"
     ],
-    "answer": 0,
-    "explanation": "カテゴリ変数はOne-Hot Encodingで数値化する。"
+    "answer": "One-Hot Encoding",
+    "tags": ["カテゴリ変数", "エンコーディング", "前処理"],
+    "explanation_layers": [
+      "One-Hot Encodingはカテゴリ変数を0/1のベクトルに変換する方法である。",
+      "カテゴリの種類ごとに新しい特徴量を作成するため、モデルがカテゴリ間の大小関係を誤解しない。",
+      "多くの機械学習モデルで一般的に用いられる。",
+      "ただしカテゴリ数が多い場合は次元が増えるという欠点がある。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 287,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "One-Hot Encodingの欠点は？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "One-Hot Encodingの欠点はどれか？",
     "choices": [
       "外れ値が増える",
       "次元が増える",
       "標準偏差が小さくなる",
       "平均値が変わる"
     ],
-    "answer": 1,
-    "explanation": "カテゴリ数が多いと次元が増えることが欠点。"
+    "answer": "次元が増える",
+    "tags": ["One-Hot Encoding", "次元の呪い", "前処理"],
+    "explanation_layers": [
+      "One-Hot Encodingはカテゴリ数が多い場合に特徴量の次元が急激に増える。",
+      "次元が増えると学習が困難になり、計算コストも増加する。",
+      "特に高次元データでは過学習のリスクが高まる。",
+      "カテゴリ数が多い場合はターゲットエンコーディングなど他の方法を検討する必要がある。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 288,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "標準化が必要になるモデルは？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "標準化が必要になるモデルはどれか？",
     "choices": [
       "k近傍法（kNN）",
       "決定木",
       "ランダムフォレスト",
       "ナイーブベイズ"
     ],
-    "answer": 0,
-    "explanation": "距離ベースのモデル（kNNなど）は標準化が必要。"
+    "answer": "k近傍法（kNN）",
+    "tags": ["標準化", "kNN", "距離ベース"],
+    "explanation_layers": [
+      "kNNは距離を基準に分類するモデルであるため、特徴量のスケールが結果に大きく影響する。",
+      "標準化を行うことで特徴量間のスケールを揃え、適切な距離計算が可能になる。",
+      "標準化は距離ベースのモデル全般で重要な前処理である。",
+      "決定木やランダムフォレストはスケールに依存しないため標準化は不要である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 289,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "正規化が必要になるケースは？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "正規化が必要になるケースはどれか？",
     "choices": [
       "距離ベースのモデルを使う場合",
       "カテゴリデータが多い場合",
       "外れ値が多い場合",
       "データが対称な場合"
     ],
-    "answer": 0,
-    "explanation": "距離ベースのモデルでは正規化が有効。"
+    "answer": "距離ベースのモデルを使う場合",
+    "tags": ["正規化", "距離ベース", "前処理"],
+    "explanation_layers": [
+      "正規化は特徴量を0〜1にスケーリングするため、距離計算に影響を与える。",
+      "距離ベースのモデル（kNN、k-meansなど）では正規化が特に重要となる。",
+      "特徴量のスケールが異なると距離計算が偏り、誤った結果につながる。",
+      "正規化は外れ値の影響を受けやすいため注意が必要である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 290,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "欠損値補完に回帰モデルを使う利点は？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "欠損値補完に回帰モデルを使う利点はどれか？",
     "choices": [
       "計算が簡単",
       "精度が高い補完ができる",
       "外れ値が減る",
       "カテゴリ変数が不要になる"
     ],
-    "answer": 1,
-    "explanation": "回帰モデルはより精度の高い補完が可能。"
+    "answer": "精度が高い補完ができる",
+    "tags": ["欠損補完", "回帰モデル", "前処理"],
+    "explanation_layers": [
+      "回帰モデルを使うことで、他の特徴量との関係を利用した精度の高い補完が可能となる。",
+      "単純な平均値補完や中央値補完よりも実際のデータ構造を反映しやすい。",
+      "欠損が多い場合でも補完精度を維持しやすい。",
+      "ただし計算コストが高く、モデル構築が必要となる点に注意が必要である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 291,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "外れ値を除去する際に注意すべき点は？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "外れ値を除去する際に注意すべき点はどれか？",
     "choices": [
       "データの意味を損なう可能性がある",
       "Accuracyが必ず上がる",
       "AUCが必ず上がる",
       "標準偏差が必ず小さくなる"
     ],
-    "answer": 0,
-    "explanation": "外れ値除去はデータの意味を損なう可能性があるため慎重に行う。"
+    "answer": "データの意味を損なう可能性がある",
+    "tags": ["外れ値", "データ品質", "前処理"],
+    "explanation_layers": [
+      "外れ値が必ずしも誤りとは限らず、重要な情報を含む場合がある。",
+      "外れ値を除去するとデータの意味や構造が失われる可能性がある。",
+      "除去前に外れ値の原因や意味を確認することが重要である。",
+      "外れ値処理は慎重に行う必要がある前処理の一つである。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 292,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "標準化と正規化の違いとして正しいものは？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "標準化と正規化の違いとして正しいものはどれか？",
     "choices": [
       "標準化は0〜1に変換する",
       "正規化は平均0に変換する",
       "標準化は平均0・標準偏差1、正規化は0〜1",
       "両者は同じ意味である"
     ],
-    "answer": 2,
-    "explanation": "標準化は平均0・標準偏差1、正規化は0〜1に変換する。"
+    "answer": "標準化は平均0・標準偏差1、正規化は0〜1",
+    "tags": ["標準化", "正規化", "前処理"],
+    "explanation_layers": [
+      "標準化はデータを平均0・標準偏差1に変換する処理である。",
+      "正規化はデータを0〜1の範囲にスケーリングする処理である。",
+      "両者は目的も計算方法も異なるため使い分けが必要である。",
+      "距離ベースのモデルでは正規化、勾配ベースのモデルでは標準化が有効な場合が多い。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 293,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "外れ値を検出する方法として適切なものは？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "外れ値を検出する方法として適切なものはどれか？",
     "choices": [
       "Zスコア",
       "One-Hot Encoding",
       "正規化",
       "標準化"
     ],
-    "answer": 0,
-    "explanation": "Zスコアは外れ値検出に使われる。"
+    "answer": "Zスコア",
+    "tags": ["外れ値", "Zスコア", "前処理"],
+    "explanation_layers": [
+      "Zスコアはデータが平均からどれだけ離れているかを示す指標である。",
+      "一般にZスコアが3以上（または−3以下）の値は外れ値とみなされる。",
+      "外れ値検出の基本的な方法として広く利用されている。",
+      "分布が正規分布に近い場合に特に有効である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
+
   {
     "id": 294,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "カテゴリ変数が多いときにOne-Hot Encodingが不適切な理由は？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "カテゴリ変数が多いときにOne-Hot Encodingが不適切な理由はどれか？",
     "choices": [
       "外れ値が増えるため",
       "次元が爆発するため",
       "標準偏差が小さくなるため",
       "平均値が変わるため"
     ],
-    "answer": 1,
-    "explanation": "カテゴリ数が多いと次元が爆発し学習が困難になる。"
+    "answer": "次元が爆発するため",
+    "tags": ["One-Hot Encoding", "次元の呪い", "カテゴリ変数"],
+    "explanation_layers": [
+      "One-Hot Encodingはカテゴリ数が多い場合に特徴量の次元が急激に増える。",
+      "次元が増えると学習が困難になり、計算コストも増加する。",
+      "高次元データでは過学習のリスクが高まるため注意が必要である。",
+      "カテゴリ数が多い場合はターゲットエンコーディングなど代替手法が検討される。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 295,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "ラベルエンコーディングの欠点は？",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "ラベルエンコーディングの欠点はどれか？",
     "choices": [
       "順序がないカテゴリに順序が付いてしまう",
       "次元が増える",
       "外れ値が増える",
       "標準偏差が変わる"
     ],
-    "answer": 0,
-    "explanation": "ラベルエンコーディングは順序がないカテゴリに順序を与えてしまう。"
+    "answer": "順序がないカテゴリに順序が付いてしまう",
+    "tags": ["ラベルエンコーディング", "カテゴリ変数", "前処理"],
+    "explanation_layers": [
+      "ラベルエンコーディングはカテゴリを整数に変換するため、暗黙的に順序が付いてしまう。",
+      "順序のないカテゴリに順序が付くとモデルが誤った関係を学習する可能性がある。",
+      "特に線形モデルや距離ベースのモデルでは影響が大きい。",
+      "順序がないカテゴリにはOne-Hot Encodingなどの手法が適切である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 296,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "標準化が不要なモデルは？",
-    "choices": [
-      "k近傍法（kNN）",
-      "ロジスティック回帰",
-      "決定木",
-      "SVM"
-    ],
-    "answer": 2,
-    "explanation": "決定木は特徴量のスケールに影響されないため標準化不要。"
-  },
-  {
-    "id": 297,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "正規化が不要なモデルは？",
-    "choices": [
-      "k近傍法（kNN）",
-      "決定木",
-      "ニューラルネットワーク",
-      "線形回帰"
-    ],
-    "answer": 1,
-    "explanation": "決定木はスケールに依存しないため正規化不要。"
-  },
-  {
-    "id": 298,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "欠損値が多い場合に適切な処理は？",
-    "choices": [
-      "削除する",
-      "平均値で補完する",
-      "モデルを使って補完する",
-      "そのまま学習する"
-    ],
-    "answer": 2,
-    "explanation": "欠損が多い場合はモデルによる補完が適切。"
-  },
-  {
-    "id": 299,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "外れ値を除去する前に必ず行うべきことは？",
-    "choices": [
-      "データの意味を確認する",
-      "標準化する",
-      "正規化する",
-      "One-Hot Encodingする"
-    ],
-    "answer": 0,
-    "explanation": "外れ値が本当に誤りかどうか、データの意味を確認する必要がある。"
-  },
-  {
-    "id": 300,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "データ前処理の目的として最も適切なものは？",
-    "choices": [
-      "モデルの性能を向上させる",
-      "データの量を減らす",
-      "カテゴリ変数を削除する",
-      "外れ値を必ず除去する"
-    ],
-    "answer": 0,
-    "explanation": "データ前処理はモデルの性能向上のために行う。"
-  },
-  {
-    "id": 301,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本平均60、標準誤差3のとき、95%信頼区間は？（Z=1.96）",
-    "choices": [
-      "54.12〜65.88",
-      "57〜63",
-      "60±3",
-      "60±1.96"
-    ],
-    "answer": 0,
-    "explanation": "60 ± 1.96×3 = 54.12〜65.88。"
-  },
-  {
-    "id": 302,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本数が増えると信頼区間はどう変化するか？",
-    "choices": [
-      "広くなる",
-      "狭くなる",
-      "変わらない",
-      "標本平均が変わる"
-    ],
-    "answer": 1,
-    "explanation": "標本数が増えると標準誤差が小さくなり、区間が狭くなる。"
-  },
-  {
-    "id": 303,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本平均が変わると信頼区間はどうなる？",
-    "choices": [
-      "幅が変わる",
-      "中心が移動する",
-      "両方変わる",
-      "何も変わらない"
-    ],
-    "answer": 1,
-    "explanation": "信頼区間の中心は標本平均なので、中心が移動するだけで幅は変わらない。"
-  },
-  {
-    "id": 304,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼係数を95%から99%にするとどうなる？",
-    "choices": [
-      "区間が狭くなる",
-      "区間が広くなる",
-      "標本平均が変わる",
-      "標準誤差が変わる"
-    ],
-    "answer": 1,
-    "explanation": "信頼係数を上げるとZ値が大きくなり、区間が広くなる。"
-  },
-  {
-    "id": 305,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本数15、標本平均50、標準偏差12のとき、95%信頼区間は？（t=2.145）",
-    "choices": [
-      "50±2.145",
-      "50±(2.145×12)",
-      "50±(2.145×12/√15)",
-      "50±(2.145×√15)"
-    ],
-    "answer": 2,
-    "explanation": "標準誤差は12/√15。よって50±2.145×(12/√15)。"
-  },
-  {
-    "id": 306,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼区間の幅は何に比例するか？",
-    "choices": [
-      "標準誤差",
-      "標本平均",
-      "標本数",
-      "中央値"
-    ],
-    "answer": 0,
-    "explanation": "信頼区間の幅は標準誤差に比例する。"
-  },
-  {
-    "id": 307,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本数が非常に大きい場合、t分布はどうなる？",
-    "choices": [
-      "正規分布に近づく",
-      "二項分布に近づく",
-      "ポアソン分布に近づく",
-      "一様分布に近づく"
-    ],
-    "answer": 0,
-    "explanation": "標本数が大きいとt分布は正規分布に近づく。"
-  },
-  {
-    "id": 308,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼区間が狭いということは何を意味するか？",
-    "choices": [
-      "推定精度が高い",
-      "推定精度が低い",
-      "標本平均が大きい",
-      "標本数が少ない"
-    ],
-    "answer": 0,
-    "explanation": "信頼区間が狭いほど推定精度が高い。"
-  },
-  {
-    "id": 309,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本平均が変わらず標準偏差だけが大きくなると信頼区間はどうなる？",
-    "choices": [
-      "狭くなる",
-      "広くなる",
-      "変わらない",
-      "標本数によって決まる"
-    ],
-    "answer": 1,
-    "explanation": "標準偏差が大きいほど標準誤差も大きくなり、区間が広くなる。"
-  },
-  {
-    "id": 310,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本平均が変わらず標本数だけが増えると信頼区間はどうなる？",
-    "choices": [
-      "狭くなる",
-      "広くなる",
-      "変わらない",
-      "標本平均が変わる"
-    ],
-    "answer": 0,
-    "explanation": "標本数が増えると標準誤差が小さくなり、区間が狭くなる。"
-  },
-  {
-    "id": 311,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼区間の中心は何か？",
-    "choices": [
-      "母平均",
-      "標本平均",
-      "中央値",
-      "最頻値"
-    ],
-    "answer": 1,
-    "explanation": "信頼区間は標本平均を中心に構築される。"
-  },
-  {
-    "id": 312,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼区間の計算でZ値を使う条件は？",
-    "choices": [
-      "標本数が大きい、母分散既知",
-      "標本数が小さい、母分散未知",
-      "標本数が小さい、母分散既知",
-      "標本数が大きい、母分散未知"
-    ],
-    "answer": 0,
-    "explanation": "Z値は標本数が大きく母分散既知の場合に使う。"
-  },
-  {
-    "id": 313,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼区間の幅を広げたい場合、どの操作が適切か？",
-    "choices": [
-      "標本数を減らす",
-      "標準偏差を減らす",
-      "信頼係数を下げる",
-      "標本平均を変える"
-    ],
-    "answer": 0,
-    "explanation": "標本数を減らすと標準誤差が増え、区間が広くなる。"
-  },
-  {
-    "id": 314,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼区間の幅を狭くしたい場合、最も効果的な方法は？",
-    "choices": [
-      "標本数を増やす",
-      "標本平均を変える",
-      "標準偏差を増やす",
-      "信頼係数を上げる"
-    ],
-    "answer": 0,
-    "explanation": "標本数を増やすと標準誤差が減り、区間が狭くなる。"
-  },
-  {
-    "id": 315,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本平均が変わらず標準偏差が小さくなると信頼区間はどうなる？",
-    "choices": [
-      "狭くなる",
-      "広くなる",
-      "変わらない",
-      "標本数によって決まる"
-    ],
-    "answer": 0,
-    "explanation": "標準偏差が小さいほど標準誤差も小さくなり、区間が狭くなる。"
-  },
-  {
-    "id": 316,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼区間が『30〜40』だったとき、正しい解釈は？",
-    "choices": [
-      "母平均は必ず30〜40にある",
-      "母平均が30〜40にある確率は95%",
-      "同じ調査を繰り返すと95%の区間が母平均を含む",
-      "標本平均は必ず30〜40にある"
-    ],
-    "answer": 2,
-    "explanation": "信頼区間は頻度論的な解釈であり、母平均の確率ではない。"
-  },
-  {
-    "id": 317,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本数が少ないと信頼区間が不安定になる理由は？",
-    "choices": [
-      "標本平均が変動しやすい",
-      "標準偏差が必ず大きくなる",
-      "母平均が変動する",
-      "信頼係数が変動する"
-    ],
-    "answer": 0,
-    "explanation": "標本数が少ないと標本平均のばらつきが大きくなるため。"
-  },
-  {
-    "id": 318,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本平均が変わらず信頼係数だけを上げると信頼区間はどうなる？",
-    "choices": [
-      "狭くなる",
-      "広くなる",
-      "変わらない",
-      "標本平均が変わる"
-    ],
-    "answer": 1,
-    "explanation": "信頼係数を上げるとZ値が大きくなり、区間が広くなる。"
-  },
-  {
-    "id": 319,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "標本平均が変わらず標準偏差と標本数が両方増えると信頼区間はどうなる？",
-    "choices": [
-      "狭くなる",
-      "広くなる",
-      "変わらない",
-      "標本平均が変わる"
-    ],
-    "answer": 0,
-    "explanation": "標本数増加の効果が大きく、標準誤差が減るため区間は狭くなる。"
-  },
-  {
-    "id": 320,
-    "category": "統計基礎",
-    "sub_category": "confidence_interval",
-    "question": "信頼区間の目的として最も適切なものは？",
-    "choices": [
-      "母平均の推定精度を示す",
-      "標本平均のばらつきを示す",
-      "標準偏差を推定する",
-      "標本数を決定する"
-    ],
-    "answer": 0,
-    "explanation": "信頼区間は母平均の推定精度を示すために使われる。"
-  },
-  {
-    "id": 321,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "正規分布の標準化で得られる分布はどれか？",
-    "choices": [
-      "平均0・標準偏差1の正規分布",
-      "平均1・標準偏差0の正規分布",
-      "一様分布",
-      "指数分布"
-    ],
-    "answer": 0,
-    "explanation": "標準化すると平均0・標準偏差1の標準正規分布になる。"
-  },
-  {
-    "id": 322,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "正規分布の確率密度関数に含まれるパラメータは？",
-    "choices": [
-      "平均と標準偏差",
-      "中央値と最頻値",
-      "試行回数と成功確率",
-      "λ（平均発生率）"
-    ],
-    "answer": 0,
-    "explanation": "正規分布は平均と標準偏差で形状が決まる。"
-  },
-  {
-    "id": 323,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "二項分布の分散はどれか？",
-    "choices": [
-      "np",
-      "np(1-p)",
-      "n/p",
-      "p/n"
-    ],
-    "answer": 1,
-    "explanation": "二項分布の分散は np(1-p)。"
-  },
-  {
-    "id": 324,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "ポアソン分布が適用される典型的な例は？",
-    "choices": [
-      "テストの点数",
-      "一定時間内の事故件数",
-      "商品の売上金額",
-      "カテゴリデータの頻度"
-    ],
-    "answer": 1,
-    "explanation": "ポアソン分布は一定時間内の発生回数に適用される。"
-  },
-  {
-    "id": 325,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "指数分布の特徴として正しいものは？",
-    "choices": [
-      "待ち時間を表す",
-      "成功確率を表す",
-      "試行回数を表す",
-      "正規分布の近似である"
-    ],
-    "answer": 0,
-    "explanation": "指数分布は事象間の待ち時間を表す。"
-  },
-  {
-    "id": 326,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "一様分布の分散はどれか？（区間[a, b]）",
-    "choices": [
-      "(b - a)^2 / 12",
-      "(a + b) / 2",
-      "ab",
-      "√(ab)"
-    ],
-    "answer": 0,
-    "explanation": "一様分布の分散は (b - a)^2 / 12。"
-  },
-  {
-    "id": 327,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "カイ二乗分布の自由度が増えるとどうなる？",
-    "choices": [
-      "正規分布に近づく",
-      "一様分布に近づく",
-      "指数分布に近づく",
-      "ポアソン分布に近づく"
-    ],
-    "answer": 0,
-    "explanation": "自由度が増えるとカイ二乗分布は正規分布に近づく。"
-  },
-  {
-    "id": 328,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "t分布の特徴として正しいものは？",
-    "choices": [
-      "正規分布より裾が厚い",
-      "正規分布より裾が薄い",
-      "一様分布に近い",
-      "指数分布に近い"
-    ],
-    "answer": 0,
-    "explanation": "t分布は正規分布より裾が厚い。"
-  },
-  {
-    "id": 329,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "二項分布がポアソン分布で近似できる条件は？",
-    "choices": [
-      "nが大きくpが小さい",
-      "nが小さくpが大きい",
-      "nが小さくpが小さい",
-      "nが大きくpが大きい"
-    ],
-    "answer": 0,
-    "explanation": "nが大きくpが小さいと二項分布はポアソン分布で近似できる。"
-  },
-  {
-    "id": 330,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "正規分布の68-95-99.7ルールで正しいものは？",
-    "choices": [
-      "±1σに95%が含まれる",
-      "±2σに68%が含まれる",
-      "±1σに68%が含まれる",
-      "±3σに95%が含まれる"
-    ],
-    "answer": 2,
-    "explanation": "正規分布では±1σに約68%が含まれる。"
-  },
-  {
-    "id": 331,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "指数分布の平均はどれか？",
-    "choices": [
-      "1/λ",
-      "λ",
-      "√λ",
-      "λ²"
-    ],
-    "answer": 0,
-    "explanation": "指数分布の平均は1/λ。"
-  },
-  {
-    "id": 332,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "正規分布の形状を決めるパラメータは？",
-    "choices": [
-      "平均と標準偏差",
-      "中央値と最頻値",
-      "試行回数と成功確率",
-      "λ（平均発生率）"
-    ],
-    "answer": 0,
-    "explanation": "正規分布は平均と標準偏差で形状が決まる。"
-  },
-  {
-    "id": 333,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "一様分布の平均はどれか？（区間[a, b]）",
-    "choices": [
-      "(a + b) / 2",
-      "a × b",
-      "b − a",
-      "√(ab)"
-    ],
-    "answer": 0,
-    "explanation": "一様分布の平均は(a + b) / 2。"
-  },
-  {
-    "id": 334,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "カイ二乗分布の特徴として正しいものは？",
-    "choices": [
-      "左右対称である",
-      "右に歪んだ分布である",
-      "左に歪んだ分布である",
-      "正規分布と同じ形状である"
-    ],
-    "answer": 1,
-    "explanation": "カイ二乗分布は右に歪んだ分布。"
-  },
-  {
-    "id": 335,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "二項分布の平均はどれか？",
-    "choices": [
-      "np",
-      "n/p",
-      "p/n",
-      "n+p"
-    ],
-    "answer": 0,
-    "explanation": "二項分布の平均はnp。"
-  },
-  {
-    "id": 336,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "ポアソン分布の平均と分散はどうなる？",
-    "choices": [
-      "平均=分散=λ",
-      "平均=λ、分散=√λ",
-      "平均=√λ、分散=λ",
-      "平均=λ²、分散=λ"
-    ],
-    "answer": 0,
-    "explanation": "ポアソン分布は平均も分散もλ。"
-  },
-  {
-    "id": 337,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "指数分布の用途として正しいものは？",
-    "choices": [
-      "待ち時間のモデル化",
-      "成功確率の推定",
-      "カテゴリデータの分析",
-      "正規分布の近似"
-    ],
-    "answer": 0,
-    "explanation": "指数分布は待ち時間のモデル化に使われる。"
-  },
-  {
-    "id": 338,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "分布の選択で最も重要なポイントは？",
-    "choices": [
-      "データの性質に合った分布を選ぶこと",
-      "平均値が大きいこと",
-      "標準偏差が小さいこと",
-      "カテゴリ数が少ないこと"
-    ],
-    "answer": 0,
-    "explanation": "分布はデータの性質に合わせて選ぶ必要がある。"
-  },
-  {
-    "id": 339,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "正規分布の裾が厚いと何が起きるか？",
-    "choices": [
-      "外れ値が出やすくなる",
-      "平均が変わる",
-      "中央値が変わる",
-      "分散が0になる"
-    ],
-    "answer": 0,
-    "explanation": "裾が厚いと外れ値が出やすくなる。"
-  },
-  {
-    "id": 340,
-    "category": "統計基礎",
-    "sub_category": "distribution",
-    "question": "二項分布が正規分布で近似できる理由は？",
-    "choices": [
-      "中心極限定理による",
-      "指数分布の性質による",
-      "一様分布の性質による",
-      "カイ二乗分布の性質による"
-    ],
-    "answer": 0,
-    "explanation": "中心極限定理により、試行回数が大きいと二項分布は正規分布に近づく。"
-  },
-  {
-    "id": 341,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "標準化（standardization）が必要なモデルはどれか？",
-    "choices": [
-      "k近傍法（kNN）",
-      "決定木",
-      "ランダムフォレスト",
-      "ナイーブベイズ"
-    ],
-    "answer": 0,
-    "explanation": "距離ベースのモデルは標準化が必要。"
-  },
-  {
-    "id": 342,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "正規化（normalization）の目的はどれか？",
-    "choices": [
-      "平均0・標準偏差1に変換する",
-      "0〜1にスケーリングする",
-      "カテゴリを数値化する",
-      "外れ値を除去する"
-    ],
-    "answer": 1,
-    "explanation": "正規化は0〜1にスケーリングする処理。"
-  },
-  {
-    "id": 343,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "欠損値が多い場合に最も適切な処理は？",
-    "choices": [
-      "削除する",
-      "平均値で補完する",
-      "モデルを使って補完する",
-      "そのまま学習する"
-    ],
-    "answer": 2,
-    "explanation": "欠損が多い場合はモデルによる補完が適切。"
-  },
-  {
-    "id": 344,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "One-Hot Encoding の欠点はどれか？",
-    "choices": [
-      "外れ値が増える",
-      "次元が増える",
-      "標準偏差が小さくなる",
-      "平均値が変わる"
-    ],
-    "answer": 1,
-    "explanation": "カテゴリ数が多いと次元が増える。"
-  },
-  {
-    "id": 345,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "ラベルエンコーディングが不適切になるケースは？",
-    "choices": [
-      "カテゴリに順序がない場合",
-      "カテゴリ数が少ない場合",
-      "外れ値が多い場合",
-      "データが対称な場合"
-    ],
-    "answer": 0,
-    "explanation": "順序がないカテゴリに順序を与えてしまう。"
-  },
-  {
-    "id": 346,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "標準化と正規化の違いとして正しいものは？",
-    "choices": [
-      "標準化は0〜1に変換する",
-      "正規化は平均0に変換する",
-      "標準化は平均0・標準偏差1、正規化は0〜1",
-      "両者は同じ意味である"
-    ],
-    "answer": 2,
-    "explanation": "標準化は平均0・標準偏差1、正規化は0〜1に変換する。"
-  },
-  {
-    "id": 347,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "外れ値を検出する方法として適切なものは？",
-    "choices": [
-      "Zスコア",
-      "One-Hot Encoding",
-      "正規化",
-      "標準化"
-    ],
-    "answer": 0,
-    "explanation": "Zスコアは外れ値検出に使われる。"
-  },
-  {
-    "id": 348,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "外れ値を除去する前に必ず行うべきことは？",
-    "choices": [
-      "データの意味を確認する",
-      "標準化する",
-      "正規化する",
-      "One-Hot Encodingする"
-    ],
-    "answer": 0,
-    "explanation": "外れ値が本当に誤りかどうか確認する必要がある。"
-  },
-  {
-    "id": 349,
-    "category": "データ前処理",
-    "sub_category": "processing",
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
     "question": "標準化が不要なモデルはどれか？",
     "choices": [
       "k近傍法（kNN）",
@@ -7458,13 +7583,22 @@
       "決定木",
       "SVM"
     ],
-    "answer": 2,
-    "explanation": "決定木は特徴量のスケールに影響されない。"
+    "answer": "決定木",
+    "tags": ["標準化", "決定木", "前処理不要"],
+    "explanation_layers": [
+      "決定木は特徴量のスケールに依存せず、閾値によって分割を行うモデルである。",
+      "そのため標準化を行ってもモデル性能にほとんど影響しない。",
+      "ランダムフォレストや勾配ブースティングなどの木系モデルも同様である。",
+      "一方、距離ベースや勾配ベースのモデルでは標準化が重要となる。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
-    "id": 350,
-    "category": "データ前処理",
-    "sub_category": "processing",
+    "id": 297,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
     "question": "正規化が不要なモデルはどれか？",
     "choices": [
       "k近傍法（kNN）",
@@ -7472,153 +7606,1475 @@
       "ニューラルネットワーク",
       "線形回帰"
     ],
-    "answer": 1,
-    "explanation": "決定木はスケールに依存しない。"
-  },
-  {
-    "id": 351,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "平均値補完が不適切になるケースは？",
-    "choices": [
-      "外れ値が多い場合",
-      "データが対称な場合",
-      "標本数が多い場合",
-      "カテゴリデータの場合"
+    "answer": "決定木",
+    "tags": ["正規化", "決定木", "前処理不要"],
+    "explanation_layers": [
+      "決定木は特徴量の大小関係ではなく、閾値による分割を行うためスケールに依存しない。",
+      "そのため正規化を行う必要がない。",
+      "木系モデルはスケーリングの影響を受けないため前処理が簡単である。",
+      "一方、距離ベースのモデルでは正規化が重要となる。"
     ],
-    "answer": 0,
-    "explanation": "平均値は外れ値の影響を受けるため不適切。"
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
-    "id": 352,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "中央値補完が適切になるケースは？",
-    "choices": [
-      "外れ値が多い場合",
-      "データが対称な場合",
-      "カテゴリデータの場合",
-      "標本数が多い場合"
-    ],
-    "answer": 0,
-    "explanation": "中央値は外れ値の影響を受けにくい。"
-  },
-  {
-    "id": 353,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "欠損値補完に回帰モデルを使う利点は？",
-    "choices": [
-      "計算が簡単",
-      "精度が高い補完ができる",
-      "外れ値が減る",
-      "カテゴリ変数が不要になる"
-    ],
-    "answer": 1,
-    "explanation": "回帰モデルはより精度の高い補完が可能。"
-  },
-  {
-    "id": 354,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "外れ値を除去するときの注意点は？",
-    "choices": [
-      "データの意味を損なう可能性がある",
-      "Accuracyが必ず上がる",
-      "AUCが必ず上がる",
-      "標準偏差が必ず小さくなる"
-    ],
-    "answer": 0,
-    "explanation": "外れ値除去はデータの意味を損なう可能性がある。"
-  },
-  {
-    "id": 355,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "カテゴリ変数が多いときにOne-Hot Encodingが不適切な理由は？",
-    "choices": [
-      "外れ値が増えるため",
-      "次元が爆発するため",
-      "標準偏差が小さくなるため",
-      "平均値が変わるため"
-    ],
-    "answer": 1,
-    "explanation": "カテゴリ数が多いと次元が爆発し学習が困難になる。"
-  },
-  {
-    "id": 356,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "ラベルエンコーディングの欠点は？",
-    "choices": [
-      "順序がないカテゴリに順序が付いてしまう",
-      "次元が増える",
-      "外れ値が増える",
-      "標準偏差が変わる"
-    ],
-    "answer": 0,
-    "explanation": "ラベルエンコーディングは順序がないカテゴリに順序を与えてしまう。"
-  },
-  {
-    "id": 357,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "標準化が必要になるケースは？",
-    "choices": [
-      "距離ベースのモデルを使う場合",
-      "カテゴリデータが多い場合",
-      "外れ値が多い場合",
-      "データが対称な場合"
-    ],
-    "answer": 0,
-    "explanation": "距離ベースのモデルでは標準化が有効。"
-  },
-  {
-    "id": 358,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "正規化が必要になるケースは？",
-    "choices": [
-      "距離ベースのモデルを使う場合",
-      "カテゴリデータが多い場合",
-      "外れ値が多い場合",
-      "データが対称な場合"
-    ],
-    "answer": 0,
-    "explanation": "距離ベースのモデルでは正規化が有効。"
-  },
-  {
-    "id": 359,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "欠損値が少ない場合に最も単純な処理は？",
+    "id": 298,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "欠損値が多い場合に適切な処理はどれか？",
     "choices": [
       "削除する",
       "平均値で補完する",
-      "中央値で補完する",
-      "モデルで補完する"
+      "モデルを使って補完する",
+      "そのまま学習する"
     ],
-    "answer": 0,
-    "explanation": "欠損が少ない場合は削除が最も単純。"
+    "answer": "モデルを使って補完する",
+    "tags": ["欠損補完", "回帰補完", "前処理"],
+    "explanation_layers": [
+      "欠損が多い場合、削除するとデータ量が大幅に減り学習が困難になる。",
+      "平均値補完では分布の特徴を失う可能性が高い。",
+      "モデルを使った補完は他の特徴量との関係を利用できるため精度が高い。",
+      "特に多変量補完（MICEなど）は欠損が多い場合に有効である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
-    "id": 360,
-    "category": "データ前処理",
-    "sub_category": "processing",
-    "question": "データ前処理の目的として最も適切なものは？",
+    "id": 299,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "外れ値を除去する前に必ず行うべきことはどれか？",
+    "choices": [
+      "データの意味を確認する",
+      "標準化する",
+      "正規化する",
+      "One-Hot Encodingする"
+    ],
+    "answer": "データの意味を確認する",
+    "tags": ["外れ値", "データ理解", "前処理"],
+    "explanation_layers": [
+      "外れ値が必ずしも誤りとは限らず、重要な情報を含む場合がある。",
+      "外れ値を除去するとデータの意味や構造が失われる可能性がある。",
+      "除去前に外れ値の原因や意味を確認することが重要である。",
+      "外れ値処理は慎重に行う必要がある前処理の一つである。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 300,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "データ前処理の目的として最も適切なものはどれか？",
     "choices": [
       "モデルの性能を向上させる",
       "データの量を減らす",
       "カテゴリ変数を削除する",
       "外れ値を必ず除去する"
     ],
-    "answer": 0,
-    "explanation": "データ前処理はモデルの性能向上のために行う。"
+    "answer": "モデルの性能を向上させる",
+    "tags": ["データ前処理", "モデル性能", "データ品質"],
+    "explanation_layers": [
+      "データ前処理はモデルが学習しやすい状態にデータを整えるために行う。",
+      "欠損補完、スケーリング、外れ値処理などはモデル性能向上に直結する。",
+      "前処理が不十分だとモデルが誤ったパターンを学習する可能性がある。",
+      "適切な前処理は高品質な機械学習モデルを構築するための基盤となる。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 301,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本平均60、標準誤差3のとき、95%信頼区間は？（Z=1.96）",
+    "choices": [
+      "54.12〜65.88",
+      "57〜63",
+      "60±3",
+      "60±1.96"
+    ],
+    "answer": "54.12〜65.88",
+    "tags": ["信頼区間", "標準誤差", "Z値"],
+    "explanation_layers": [
+      "95%信頼区間は標本平均 ± Z値×標準誤差で求められる。",
+      "この場合は 60 ± 1.96×3 を計算する。",
+      "1.96×3 = 5.88 となるため、区間は 60−5.88〜60+5.88。",
+      "よって信頼区間は 54.12〜65.88 となる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 302,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本数が増えると信頼区間はどう変化するか？",
+    "choices": [
+      "広くなる",
+      "狭くなる",
+      "変わらない",
+      "標本平均が変わる"
+    ],
+    "answer": "狭くなる",
+    "tags": ["標本数", "標準誤差", "信頼区間"],
+    "explanation_layers": [
+      "標本数が増えると標準誤差が小さくなる。",
+      "標準誤差が小さくなると信頼区間の幅も狭くなる。",
+      "これは推定の精度が高くなることを意味する。",
+      "大標本ではより安定した推定が可能となる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 303,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本平均が変わると信頼区間はどうなる？",
+    "choices": [
+      "幅が変わる",
+      "中心が移動する",
+      "両方変わる",
+      "何も変わらない"
+    ],
+    "answer": "中心が移動する",
+    "tags": ["標本平均", "信頼区間"],
+    "explanation_layers": [
+      "信頼区間の中心は標本平均である。",
+      "標本平均が変わると区間の中心が移動する。",
+      "ただし標準誤差やZ値が変わらなければ幅は変わらない。",
+      "信頼区間は「中心の移動」と「幅の変化」を分けて考える必要がある。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 304,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼係数を95%から99%にするとどうなる？",
+    "choices": [
+      "区間が狭くなる",
+      "区間が広くなる",
+      "標本平均が変わる",
+      "標準誤差が変わる"
+    ],
+    "answer": "区間が広くなる",
+    "tags": ["信頼係数", "Z値", "信頼区間"],
+    "explanation_layers": [
+      "信頼係数を上げるとZ値が大きくなる。",
+      "Z値が大きくなると信頼区間の幅が広くなる。",
+      "これはより高い確率で母平均を含む区間を求めるためである。",
+      "信頼係数と区間幅はトレードオフの関係にある。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 305,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本数15、標本平均50、標準偏差12のとき、95%信頼区間は？（t=2.145）",
+    "choices": [
+      "50±2.145",
+      "50±(2.145×12)",
+      "50±(2.145×12/√15)",
+      "50±(2.145×√15)"
+    ],
+    "answer": "50±(2.145×12/√15)",
+    "tags": ["t分布", "標準誤差", "信頼区間"],
+    "explanation_layers": [
+      "標本数が小さい場合はt分布を用いる。",
+      "標準誤差は標準偏差÷√標本数で求められる。",
+      "この場合は 12/√15 が標準誤差となる。",
+      "よって信頼区間は 50±2.145×(12/√15) となる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 306,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼区間の幅は何に比例するか？",
+    "choices": [
+      "標準誤差",
+      "標本平均",
+      "標本数",
+      "中央値"
+    ],
+    "answer": "標準誤差",
+    "tags": ["標準誤差", "信頼区間"],
+    "explanation_layers": [
+      "信頼区間の幅は標準誤差に比例する。",
+      "標準誤差が大きいほど区間は広くなる。",
+      "標準誤差は標準偏差と標本数によって決まる。",
+      "推定精度を高めるには標準誤差を小さくする必要がある。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 307,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本数が非常に大きい場合、t分布はどうなる？",
+    "choices": [
+      "正規分布に近づく",
+      "二項分布に近づく",
+      "ポアソン分布に近づく",
+      "一様分布に近づく"
+    ],
+    "answer": "正規分布に近づく",
+    "tags": ["t分布", "正規分布", "大標本"],
+    "explanation_layers": [
+      "標本数が大きくなるとt分布の形は正規分布に近づく。",
+      "これは自由度が増えることで分布が尖りを失うためである。",
+      "大標本ではZ値を用いた近似が可能となる。",
+      "t分布と正規分布の関係は推定の基礎として重要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 308,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼区間が狭いということは何を意味するか？",
+    "choices": [
+      "推定精度が高い",
+      "推定精度が低い",
+      "標本平均が大きい",
+      "標本数が少ない"
+    ],
+    "answer": "推定精度が高い",
+    "tags": ["信頼区間", "推定精度"],
+    "explanation_layers": [
+      "信頼区間が狭いほど推定精度が高いことを意味する。",
+      "狭い区間は標準誤差が小さいことを示す。",
+      "標準誤差が小さいほど標本平均のばらつきが小さい。",
+      "精度の高い推定は実務でも重要な要素となる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 309,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本平均が変わらず標準偏差だけが大きくなると信頼区間はどうなる？",
+    "choices": [
+      "狭くなる",
+      "広くなる",
+      "変わらない",
+      "標本数によって決まる"
+    ],
+    "answer": "広くなる",
+    "tags": ["標準偏差", "標準誤差", "信頼区間"],
+    "explanation_layers": [
+      "標準偏差が大きくなると標準誤差も大きくなる。",
+      "標準誤差が大きくなると信頼区間の幅が広くなる。",
+      "これは推定の不確実性が増すことを意味する。",
+      "標準偏差はデータのばらつきを表す重要な指標である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 310,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本平均が変わらず標本数だけが増えると信頼区間はどうなる？",
+    "choices": [
+      "狭くなる",
+      "広くなる",
+      "変わらない",
+      "標本平均が変わる"
+    ],
+    "answer": "狭くなる",
+    "tags": ["標本数", "標準誤差", "信頼区間"],
+    "explanation_layers": [
+      "標本数が増えると標準誤差が小さくなる。",
+      "標準誤差が小さくなると信頼区間の幅が狭くなる。",
+      "これは推定精度が高くなることを意味する。",
+      "大標本はより安定した推定を可能にする。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 311,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼区間の中心は何か？",
+    "choices": [
+      "母平均",
+      "標本平均",
+      "中央値",
+      "最頻値"
+    ],
+    "answer": "標本平均",
+    "tags": ["信頼区間", "標本平均"],
+    "explanation_layers": [
+      "信頼区間は標本平均を中心に構築される。",
+      "標本平均は母平均の推定値として用いられる。",
+      "区間の幅は標準誤差とZ値（またはt値）によって決まる。",
+      "中心と幅を分けて理解することが重要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 312,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼区間の計算でZ値を使う条件はどれか？",
+    "choices": [
+      "標本数が大きい、母分散既知",
+      "標本数が小さい、母分散未知",
+      "標本数が小さい、母分散既知",
+      "標本数が大きい、母分散未知"
+    ],
+    "answer": "標本数が大きい、母分散既知",
+    "tags": ["Z値", "t値", "信頼区間"],
+    "explanation_layers": [
+      "Z値は標本数が大きく、母分散が既知の場合に使用する。",
+      "母分散が未知で標本数が小さい場合はt分布を用いる。",
+      "大標本ではt分布は正規分布に近づくためZ値で近似できる。",
+      "Z値とt値の使い分けは推定の基本である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 313,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼区間の幅を広げたい場合、どの操作が適切か？",
+    "choices": [
+      "標本数を減らす",
+      "標準偏差を減らす",
+      "信頼係数を下げる",
+      "標本平均を変える"
+    ],
+    "answer": "標本数を減らす",
+    "tags": ["信頼区間", "標本数", "標準誤差"],
+    "explanation_layers": [
+      "標本数を減らすと標準誤差が大きくなる。",
+      "標準誤差が大きくなると信頼区間の幅が広くなる。",
+      "信頼係数を上げても幅は広くなるが、標本数の影響が最も大きい。",
+      "区間幅の調整は推定精度の管理に重要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 314,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼区間の幅を狭くしたい場合、最も効果的な方法はどれか？",
+    "choices": [
+      "標本数を増やす",
+      "標本平均を変える",
+      "標準偏差を増やす",
+      "信頼係数を上げる"
+    ],
+    "answer": "標本数を増やす",
+    "tags": ["信頼区間", "標本数", "標準誤差"],
+    "explanation_layers": [
+      "標本数を増やすと標準誤差が小さくなる。",
+      "標準誤差が小さくなると信頼区間の幅が狭くなる。",
+      "標準偏差を減らすことも効果があるが、標本数の影響が最も大きい。",
+      "推定精度を高めるために標本数を増やすことは基本的な戦略である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+
+  {
+    "id": 315,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本平均が変わらず標準偏差が小さくなると信頼区間はどうなる？",
+    "choices": [
+      "狭くなる",
+      "広くなる",
+      "変わらない",
+      "標本数によって決まる"
+    ],
+    "answer": "狭くなる",
+    "tags": ["標準偏差", "標準誤差", "信頼区間"],
+    "explanation_layers": [
+      "標準偏差が小さくなると標準誤差も小さくなる。",
+      "標準誤差が小さくなると信頼区間の幅が狭くなる。",
+      "これは推定の不確実性が減り、精度が高くなることを意味する。",
+      "標準偏差はデータのばらつきを示す重要な指標であり、信頼区間の幅に直接影響する。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 316,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼区間が『30〜40』だったとき、正しい解釈はどれか？",
+    "choices": [
+      "母平均は必ず30〜40にある",
+      "母平均が30〜40にある確率は95%",
+      "同じ調査を繰り返すと95%の区間が母平均を含む",
+      "標本平均は必ず30〜40にある"
+    ],
+    "answer": "同じ調査を繰り返すと95%の区間が母平均を含む",
+    "tags": ["信頼区間", "頻度論", "解釈"],
+    "explanation_layers": [
+      "信頼区間は頻度論的な概念であり、母平均が区間内にある確率を示すものではない。",
+      "同じ調査を多数回繰り返したとき、その95%の信頼区間が母平均を含むという意味である。",
+      "区間自体に確率があるわけではなく、推定方法に確率がある。",
+      "信頼区間の正しい解釈は統計学の基礎として重要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 317,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本数が少ないと信頼区間が不安定になる理由はどれか？",
+    "choices": [
+      "標本平均が変動しやすい",
+      "標準偏差が必ず大きくなる",
+      "母平均が変動する",
+      "信頼係数が変動する"
+    ],
+    "answer": "標本平均が変動しやすい",
+    "tags": ["標本数", "標本平均", "信頼区間"],
+    "explanation_layers": [
+      "標本数が少ないと標本平均のばらつきが大きくなる。",
+      "標本平均が変動しやすいほど信頼区間の中心も不安定になる。",
+      "標準誤差も大きくなるため区間の幅も広くなる。",
+      "小標本では推定の不確実性が高くなるため注意が必要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 318,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本平均が変わらず信頼係数だけを上げると信頼区間はどうなる？",
+    "choices": [
+      "狭くなる",
+      "広くなる",
+      "変わらない",
+      "標本平均が変わる"
+    ],
+    "answer": "広くなる",
+    "tags": ["信頼係数", "Z値", "信頼区間"],
+    "explanation_layers": [
+      "信頼係数を上げるとZ値（またはt値）が大きくなる。",
+      "Z値が大きくなると信頼区間の幅が広くなる。",
+      "これはより高い確率で母平均を含む区間を求めるためである。",
+      "信頼係数と区間幅はトレードオフの関係にある。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 319,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "標本平均が変わらず標準偏差と標本数が両方増えると信頼区間はどうなる？",
+    "choices": [
+      "狭くなる",
+      "広くなる",
+      "変わらない",
+      "標本平均が変わる"
+    ],
+    "answer": "狭くなる",
+    "tags": ["標準偏差", "標本数", "標準誤差"],
+    "explanation_layers": [
+      "標準偏差が増えると標準誤差は大きくなるが、標本数が増えると標準誤差は小さくなる。",
+      "標本数増加の効果は平方根で効くため、標準偏差増加よりも影響が大きい。",
+      "その結果、標準誤差は小さくなり信頼区間は狭くなる。",
+      "標本数と標準偏差の両方が区間幅に影響する点が重要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+  {
+    "id": 320,
+    "category": "統計学",
+    "subcategory": "推定と信頼区間",
+    "concept_id": "stats_confidence_interval",
+    "question": "信頼区間の目的として最も適切なものはどれか？",
+    "choices": [
+      "母平均の推定精度を示す",
+      "標本平均のばらつきを示す",
+      "標準偏差を推定する",
+      "標本数を決定する"
+    ],
+    "answer": "母平均の推定精度を示す",
+    "tags": ["信頼区間", "推定精度", "母平均"],
+    "explanation_layers": [
+      "信頼区間は母平均の推定精度を示すために用いられる。",
+      "区間の幅が狭いほど推定精度が高いことを意味する。",
+      "標本平均の不確実性を区間として表現することで解釈しやすくなる。",
+      "推定の信頼性を評価するための基本的な統計手法である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "confidence_interval"
+  },
+
+  {
+    "id": 321,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "正規分布の標準化で得られる分布はどれか？",
+    "choices": [
+      "平均0・標準偏差1の正規分布",
+      "平均1・標準偏差0の正規分布",
+      "一様分布",
+      "指数分布"
+    ],
+    "answer": "平均0・標準偏差1の正規分布",
+    "tags": ["正規分布", "標準化", "標準正規分布"],
+    "explanation_layers": [
+      "正規分布を標準化すると平均0・標準偏差1の標準正規分布になる。",
+      "標準化は値から平均を引き、標準偏差で割ることで行う。",
+      "これにより異なる正規分布を共通の尺度で比較できるようになる。",
+      "標準正規分布は多くの統計手法の基礎となる重要な分布である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 322,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "正規分布の確率密度関数に含まれるパラメータはどれか？",
+    "choices": [
+      "平均と標準偏差",
+      "中央値と最頻値",
+      "試行回数と成功確率",
+      "λ（平均発生率）"
+    ],
+    "answer": "平均と標準偏差",
+    "tags": ["正規分布", "確率密度関数", "パラメータ"],
+    "explanation_layers": [
+      "正規分布は平均と標準偏差の2つのパラメータで形状が決まる。",
+      "平均は分布の中心、標準偏差は広がりを表す。",
+      "これらの値が変わると分布の位置や形が変化する。",
+      "正規分布は連続分布の中でも最も重要な分布の一つである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 323,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "二項分布の分散はどれか？",
+    "choices": [
+      "np",
+      "np(1-p)",
+      "n/p",
+      "p/n"
+    ],
+    "answer": "np(1-p)",
+    "tags": ["二項分布", "分散", "確率分布"],
+    "explanation_layers": [
+      "二項分布の分散は np(1-p) で表される。",
+      "nは試行回数、pは成功確率を表す。",
+      "成功確率が0または1に近いほど分散は小さくなる。",
+      "二項分布は離散分布の代表的な例である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 324,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "ポアソン分布が適用される典型的な例はどれか？",
+    "choices": [
+      "テストの点数",
+      "一定時間内の事故件数",
+      "商品の売上金額",
+      "カテゴリデータの頻度"
+    ],
+    "answer": "一定時間内の事故件数",
+    "tags": ["ポアソン分布", "発生回数", "確率分布"],
+    "explanation_layers": [
+      "ポアソン分布は一定時間内に発生する事象の回数を表す分布である。",
+      "事故件数や問い合わせ件数など、ランダムな発生回数に適用される。",
+      "平均発生率λが分布の形を決める重要なパラメータとなる。",
+      "発生回数のモデル化に広く利用される分布である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 325,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "指数分布の特徴として正しいものはどれか？",
+    "choices": [
+      "待ち時間を表す",
+      "成功確率を表す",
+      "試行回数を表す",
+      "正規分布の近似である"
+    ],
+    "answer": "待ち時間を表す",
+    "tags": ["指数分布", "待ち時間", "確率分布"],
+    "explanation_layers": [
+      "指数分布は事象が発生するまでの待ち時間を表す分布である。",
+      "ポアソン過程における事象間隔として利用される。",
+      "平均は1/λで、λは発生率を表す。",
+      "待ち時間や寿命データのモデル化に広く使われる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 326,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "一様分布の分散はどれか？（区間[a, b]）",
+    "choices": [
+      "(b - a)^2 / 12",
+      "(a + b) / 2",
+      "ab",
+      "√(ab)"
+    ],
+    "answer": "(b - a)^2 / 12",
+    "tags": ["一様分布", "分散", "確率分布"],
+    "explanation_layers": [
+      "一様分布は区間[a, b]内で同じ確率密度を持つ分布である。",
+      "その分散は (b - a)^2 / 12 で求められる。",
+      "区間が広いほど分散も大きくなる。",
+      "一様分布は最も単純な連続分布の一つである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 327,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "カイ二乗分布の自由度が増えるとどうなる？",
+    "choices": [
+      "正規分布に近づく",
+      "一様分布に近づく",
+      "指数分布に近づく",
+      "ポアソン分布に近づく"
+    ],
+    "answer": "正規分布に近づく",
+    "tags": ["カイ二乗分布", "自由度", "正規分布"],
+    "explanation_layers": [
+      "カイ二乗分布は自由度によって形が変わる。",
+      "自由度が増えるほど分布は左右対称に近づき、正規分布に近くなる。",
+      "これは中心極限定理に関連する性質である。",
+      "大きな自由度のカイ二乗分布は正規分布として近似されることが多い。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 328,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "t分布の特徴として正しいものはどれか？",
+    "choices": [
+      "正規分布より裾が厚い",
+      "正規分布より裾が薄い",
+      "一様分布に近い",
+      "指数分布に近い"
+    ],
+    "answer": "正規分布より裾が厚い",
+    "tags": ["t分布", "裾の厚さ", "確率分布"],
+    "explanation_layers": [
+      "t分布は正規分布より裾が厚い形状を持つ。",
+      "これは標本数が小さい場合の不確実性を反映している。",
+      "自由度が増えると正規分布に近づく。",
+      "小標本の推定や検定で重要な役割を果たす分布である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 329,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "二項分布がポアソン分布で近似できる条件はどれか？",
+    "choices": [
+      "nが大きくpが小さい",
+      "nが小さくpが大きい",
+      "nが小さくpが小さい",
+      "nが大きくpが大きい"
+    ],
+    "answer": "nが大きくpが小さい",
+    "tags": ["二項分布", "ポアソン分布", "近似"],
+    "explanation_layers": [
+      "二項分布は試行回数nが大きく、成功確率pが小さい場合にポアソン分布で近似できる。",
+      "このとき平均npがポアソン分布のλとなる。",
+      "希少事象のモデル化でよく利用される近似である。",
+      "計算の簡略化にも役立つ重要な性質である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 330,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "正規分布の68-95-99.7ルールで正しいものはどれか？",
+    "choices": [
+      "±1σに95%が含まれる",
+      "±2σに68%が含まれる",
+      "±1σに68%が含まれる",
+      "±3σに95%が含まれる"
+    ],
+    "answer": "±1σに68%が含まれる",
+    "tags": ["正規分布", "経験則", "標準偏差"],
+    "explanation_layers": [
+      "正規分布では±1σに約68%のデータが含まれる。",
+      "±2σには約95%、±3σには約99.7%が含まれる。",
+      "これは正規分布の経験則（68-95-99.7ルール）として知られる。",
+      "分布の広がりを理解するための基本的な指標である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 331,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "指数分布の平均はどれか？",
+    "choices": [
+      "1/λ",
+      "λ",
+      "√λ",
+      "λ²"
+    ],
+    "answer": "1/λ",
+    "tags": ["指数分布", "平均", "確率分布"],
+    "explanation_layers": [
+      "指数分布の平均は1/λで表される。",
+      "λは事象の発生率を表すパラメータである。",
+      "発生率が高いほど平均待ち時間は短くなる。",
+      "指数分布は待ち時間モデルとして広く利用される。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 332,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "正規分布の形状を決めるパラメータはどれか？",
+    "choices": [
+      "平均と標準偏差",
+      "中央値と最頻値",
+      "試行回数と成功確率",
+      "λ（平均発生率）"
+    ],
+    "answer": "平均と標準偏差",
+    "tags": ["正規分布", "パラメータ", "確率分布"],
+    "explanation_layers": [
+      "正規分布は平均と標準偏差の2つのパラメータで形状が決まる。",
+      "平均は分布の中心、標準偏差は広がりを表す。",
+      "これらの値が変わると分布の位置や形が変化する。",
+      "正規分布は統計学で最も重要な分布の一つである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 333,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "一様分布の平均はどれか？（区間[a, b]）",
+    "choices": [
+      "(a + b) / 2",
+      "a × b",
+      "b − a",
+      "√(ab)"
+    ],
+    "answer": "(a + b) / 2",
+    "tags": ["一様分布", "平均", "確率分布"],
+    "explanation_layers": [
+      "一様分布の平均は区間[a, b]の中央である (a + b) / 2。",
+      "一様分布は区間内で同じ確率密度を持つ。",
+      "平均は分布の中心を示す重要な指標である。",
+      "一様分布は最も単純な連続分布の一つである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 334,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "カイ二乗分布の特徴として正しいものはどれか？",
+    "choices": [
+      "左右対称である",
+      "右に歪んだ分布である",
+      "左に歪んだ分布である",
+      "正規分布と同じ形状である"
+    ],
+    "answer": "右に歪んだ分布である",
+    "tags": ["カイ二乗分布", "歪度", "確率分布"],
+    "explanation_layers": [
+      "カイ二乗分布は右に歪んだ形状を持つ分布である。",
+      "自由度が小さいほど歪みが大きくなる。",
+      "自由度が増えると正規分布に近づく。",
+      "検定や分散分析で広く利用される重要な分布である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 335,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "二項分布の平均はどれか？",
+    "choices": [
+      "np",
+      "n/p",
+      "p/n",
+      "n+p"
+    ],
+    "answer": "np",
+    "tags": ["二項分布", "平均", "確率分布"],
+    "explanation_layers": [
+      "二項分布の平均は np で表される。",
+      "nは試行回数、pは成功確率を表す。",
+      "平均は期待される成功回数を示す。",
+      "二項分布は離散分布の代表的な例である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+
+  {
+    "id": 336,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "ポアソン分布の平均と分散はどうなる？",
+    "choices": [
+      "平均=分散=λ",
+      "平均=λ、分散=√λ",
+      "平均=√λ、分散=λ",
+      "平均=λ²、分散=λ"
+    ],
+    "answer": "平均=分散=λ",
+    "tags": ["ポアソン分布", "平均", "分散"],
+    "explanation_layers": [
+      "ポアソン分布は一定時間内の発生回数を表す分布である。",
+      "平均と分散がともにλとなる特徴を持つ。",
+      "これは発生率が分布の広がりにも影響することを意味する。",
+      "ポアソン分布は希少事象のモデル化に広く使われる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 337,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "指数分布の用途として正しいものはどれか？",
+    "choices": [
+      "待ち時間のモデル化",
+      "成功確率の推定",
+      "カテゴリデータの分析",
+      "正規分布の近似"
+    ],
+    "answer": "待ち時間のモデル化",
+    "tags": ["指数分布", "待ち時間", "確率分布"],
+    "explanation_layers": [
+      "指数分布は事象が発生するまでの待ち時間を表す分布である。",
+      "ポアソン過程における事象間隔として利用される。",
+      "平均は1/λで、λは発生率を表す。",
+      "待ち時間や寿命データのモデル化に広く使われる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 338,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "分布の選択で最も重要なポイントはどれか？",
+    "choices": [
+      "データの性質に合った分布を選ぶこと",
+      "平均値が大きいこと",
+      "標準偏差が小さいこと",
+      "カテゴリ数が少ないこと"
+    ],
+    "answer": "データの性質に合った分布を選ぶこと",
+    "tags": ["分布選択", "データ分析"],
+    "explanation_layers": [
+      "分布はデータの性質に合わせて選ぶ必要がある。",
+      "誤った分布を選ぶと推定や検定の結果が不正確になる。",
+      "データの連続性・離散性・歪度などを確認することが重要。",
+      "適切な分布選択は統計分析の基礎である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 339,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "正規分布の裾が厚いと何が起きるか？",
+    "choices": [
+      "外れ値が出やすくなる",
+      "平均が変わる",
+      "中央値が変わる",
+      "分散が0になる"
+    ],
+    "answer": "外れ値が出やすくなる",
+    "tags": ["正規分布", "裾の厚さ", "外れ値"],
+    "explanation_layers": [
+      "裾が厚い分布は極端な値が出やすい特徴を持つ。",
+      "これは外れ値が発生しやすいことを意味する。",
+      "データのばらつきが大きくなるため推定が不安定になる可能性がある。",
+      "裾の厚さは分布の形状を理解する上で重要な指標である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 340,
+    "category": "統計学",
+    "subcategory": "分布",
+    "concept_id": "stats_distribution",
+    "question": "二項分布が正規分布で近似できる理由はどれか？",
+    "choices": [
+      "中心極限定理による",
+      "指数分布の性質による",
+      "一様分布の性質による",
+      "カイ二乗分布の性質による"
+    ],
+    "answer": "中心極限定理による",
+    "tags": ["二項分布", "正規分布", "中心極限定理"],
+    "explanation_layers": [
+      "中心極限定理により、試行回数が大きいと二項分布は正規分布に近づく。",
+      "これは成功回数の分布が平均付近に集中するためである。",
+      "pが0.5付近の場合に特に近似精度が高い。",
+      "二項分布の近似は計算の簡略化に役立つ重要な性質である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "distribution"
+  },
+  {
+    "id": 341,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "標準化（standardization）が必要なモデルはどれか？",
+    "choices": [
+      "k近傍法（kNN）",
+      "決定木",
+      "ランダムフォレスト",
+      "ナイーブベイズ"
+    ],
+    "answer": "k近傍法（kNN）",
+    "tags": ["標準化", "kNN", "距離ベース"],
+    "explanation_layers": [
+      "kNNは距離を基準に分類するモデルである。",
+      "特徴量のスケールが異なると距離計算が偏る。",
+      "標準化により特徴量のスケールを揃える必要がある。",
+      "距離ベースのモデルでは標準化が特に重要となる。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 342,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "正規化（normalization）の目的はどれか？",
+    "choices": [
+      "平均0・標準偏差1に変換する",
+      "0〜1にスケーリングする",
+      "カテゴリを数値化する",
+      "外れ値を除去する"
+    ],
+    "answer": "0〜1にスケーリングする",
+    "tags": ["正規化", "スケーリング", "前処理"],
+    "explanation_layers": [
+      "正規化は特徴量を0〜1の範囲にスケーリングする処理である。",
+      "最大値と最小値を基準に変換するためスケールが統一される。",
+      "距離ベースのモデルでは正規化が特に重要となる。",
+      "ただし外れ値の影響を受けやすいため注意が必要である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 343,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "欠損値が多い場合に最も適切な処理はどれか？",
+    "choices": [
+      "削除する",
+      "平均値で補完する",
+      "モデルを使って補完する",
+      "そのまま学習する"
+    ],
+    "answer": "モデルを使って補完する",
+    "tags": ["欠損補完", "前処理", "回帰補完"],
+    "explanation_layers": [
+      "欠損が多い場合、削除するとデータ量が大幅に減る。",
+      "平均値補完では分布の特徴を失う可能性が高い。",
+      "モデルを使った補完は他の特徴量との関係を利用できるため精度が高い。",
+      "多変量補完（MICEなど）は欠損が多い場合に特に有効である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 344,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "One-Hot Encoding の欠点はどれか？",
+    "choices": [
+      "外れ値が増える",
+      "次元が増える",
+      "標準偏差が小さくなる",
+      "平均値が変わる"
+    ],
+    "answer": "次元が増える",
+    "tags": ["One-Hot Encoding", "次元の呪い", "カテゴリ変数"],
+    "explanation_layers": [
+      "One-Hot Encodingはカテゴリ数が多い場合に特徴量の次元が急激に増える。",
+      "次元が増えると学習が困難になり計算コストも増加する。",
+      "高次元データでは過学習のリスクが高まる。",
+      "カテゴリ数が多い場合はターゲットエンコーディングなど代替手法が検討される。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 345,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "ラベルエンコーディングが不適切になるケースはどれか？",
+    "choices": [
+      "カテゴリに順序がない場合",
+      "カテゴリ数が少ない場合",
+      "外れ値が多い場合",
+      "データが対称な場合"
+    ],
+    "answer": "カテゴリに順序がない場合",
+    "tags": ["ラベルエンコーディング", "カテゴリ変数", "前処理"],
+    "explanation_layers": [
+      "ラベルエンコーディングはカテゴリを整数に変換するため暗黙的に順序が付く。",
+      "順序のないカテゴリに順序が付くとモデルが誤った関係を学習する可能性がある。",
+      "特に線形モデルや距離ベースのモデルでは影響が大きい。",
+      "順序がないカテゴリにはOne-Hot Encodingが適切である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 346,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "標準化と正規化の違いとして正しいものはどれか？",
+    "choices": [
+      "標準化は0〜1に変換する",
+      "正規化は平均0に変換する",
+      "標準化は平均0・標準偏差1、正規化は0〜1",
+      "両者は同じ意味である"
+    ],
+    "answer": "標準化は平均0・標準偏差1、正規化は0〜1",
+    "tags": ["標準化", "正規化", "前処理"],
+    "explanation_layers": [
+      "標準化はデータを平均0・標準偏差1に変換する処理である。",
+      "正規化はデータを0〜1の範囲にスケーリングする処理である。",
+      "両者は目的も計算方法も異なるため使い分けが必要である。",
+      "距離ベースのモデルでは正規化、勾配ベースのモデルでは標準化が有効な場合が多い。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 347,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "外れ値を検出する方法として適切なものはどれか？",
+    "choices": [
+      "Zスコア",
+      "One-Hot Encoding",
+      "正規化",
+      "標準化"
+    ],
+    "answer": "Zスコア",
+    "tags": ["外れ値", "Zスコア", "前処理"],
+    "explanation_layers": [
+      "Zスコアはデータが平均からどれだけ離れているかを示す指標である。",
+      "一般にZスコアが3以上（または−3以下）の値は外れ値とみなされる。",
+      "外れ値検出の基本的な方法として広く利用されている。",
+      "分布が正規分布に近い場合に特に有効である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 348,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "外れ値を除去する前に必ず行うべきことはどれか？",
+    "choices": [
+      "データの意味を確認する",
+      "標準化する",
+      "正規化する",
+      "One-Hot Encodingする"
+    ],
+    "answer": "データの意味を確認する",
+    "tags": ["外れ値", "データ理解", "前処理"],
+    "explanation_layers": [
+      "外れ値が必ずしも誤りとは限らず重要な情報を含む場合がある。",
+      "外れ値を除去するとデータの意味や構造が失われる可能性がある。",
+      "除去前に外れ値の原因や意味を確認することが重要である。",
+      "外れ値処理は慎重に行う必要がある前処理の一つである。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 349,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "標準化が不要なモデルはどれか？",
+    "choices": [
+      "k近傍法（kNN）",
+      "ロジスティック回帰",
+      "決定木",
+      "SVM"
+    ],
+    "answer": "決定木",
+    "tags": ["標準化不要", "決定木", "前処理"],
+    "explanation_layers": [
+      "決定木は特徴量のスケールに依存せず閾値による分割を行う。",
+      "そのため標準化を行ってもモデル性能にほとんど影響しない。",
+      "ランダムフォレストや勾配ブースティングなどの木系モデルも同様である。",
+      "木系モデルは前処理が比較的簡単である点が特徴である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+
+  {
+    "id": 350,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "正規化が不要なモデルはどれか？",
+    "choices": [
+      "k近傍法（kNN）",
+      "決定木",
+      "ニューラルネットワーク",
+      "線形回帰"
+    ],
+    "answer": "決定木",
+    "tags": ["正規化不要", "決定木", "前処理"],
+    "explanation_layers": [
+      "決定木は特徴量のスケールに依存せず閾値による分割を行う。",
+      "そのため正規化を行ってもモデル性能にほとんど影響しない。",
+      "ランダムフォレストや勾配ブースティングなどの木系モデルも同様である。",
+      "木系モデルは前処理が比較的簡単である点が特徴である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 351,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "平均値補完が不適切になるケースはどれか？",
+    "choices": [
+      "外れ値が多い場合",
+      "データが対称な場合",
+      "標本数が多い場合",
+      "カテゴリデータの場合"
+    ],
+    "answer": "外れ値が多い場合",
+    "tags": ["欠損補完", "平均値補完", "外れ値"],
+    "explanation_layers": [
+      "平均値補完は外れ値の影響を強く受けるため不適切となる。",
+      "外れ値が平均値を大きく歪めるため補完値が実際の分布を反映しなくなる。",
+      "中央値補完やモデルによる補完の方が適切な場合が多い。",
+      "平均値補完は外れ値が少ない場合に有効である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 352,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "中央値補完が適切になるケースはどれか？",
+    "choices": [
+      "外れ値が多い場合",
+      "データが対称な場合",
+      "カテゴリデータの場合",
+      "標本数が多い場合"
+    ],
+    "answer": "外れ値が多い場合",
+    "tags": ["中央値補完", "欠損補完", "外れ値"],
+    "explanation_layers": [
+      "中央値は外れ値の影響を受けにくい統計量である。",
+      "そのため外れ値が多いデータでは中央値補完が適切となる。",
+      "平均値補完よりも分布の中心を適切に反映しやすい。",
+      "外れ値が多い場合は中央値補完が一般的に推奨される。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 353,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "欠損値補完に回帰モデルを使う利点はどれか？",
+    "choices": [
+      "計算が簡単",
+      "精度が高い補完ができる",
+      "外れ値が減る",
+      "カテゴリ変数が不要になる"
+    ],
+    "answer": "精度が高い補完ができる",
+    "tags": ["欠損補完", "回帰モデル", "前処理"],
+    "explanation_layers": [
+      "回帰モデルは他の特徴量との関係を利用して補完を行う。",
+      "そのため単純な平均値補完よりも精度が高い補完が可能となる。",
+      "欠損が多い場合でも補完精度を維持しやすい。",
+      "ただし計算コストが高くモデル構築が必要となる点に注意が必要である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 354,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "外れ値を除去するときの注意点はどれか？",
+    "choices": [
+      "データの意味を損なう可能性がある",
+      "Accuracyが必ず上がる",
+      "AUCが必ず上がる",
+      "標準偏差が必ず小さくなる"
+    ],
+    "answer": "データの意味を損なう可能性がある",
+    "tags": ["外れ値", "データ品質", "前処理"],
+    "explanation_layers": [
+      "外れ値が必ずしも誤りとは限らず重要な情報を含む場合がある。",
+      "外れ値を除去するとデータの意味や構造が失われる可能性がある。",
+      "除去前に外れ値の原因や意味を確認することが重要である。",
+      "外れ値処理は慎重に行う必要がある前処理の一つである。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 355,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "カテゴリ変数が多いときにOne-Hot Encodingが不適切な理由はどれか？",
+    "choices": [
+      "外れ値が増えるため",
+      "次元が爆発するため",
+      "標準偏差が小さくなるため",
+      "平均値が変わるため"
+    ],
+    "answer": "次元が爆発するため",
+    "tags": ["One-Hot Encoding", "次元の呪い", "カテゴリ変数"],
+    "explanation_layers": [
+      "One-Hot Encodingはカテゴリ数が多い場合に特徴量の次元が急激に増える。",
+      "次元が増えると学習が困難になり計算コストも増加する。",
+      "高次元データでは過学習のリスクが高まる。",
+      "カテゴリ数が多い場合はターゲットエンコーディングなど代替手法が検討される。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 356,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "ラベルエンコーディングの欠点はどれか？",
+    "choices": [
+      "順序がないカテゴリに順序が付いてしまう",
+      "次元が増える",
+      "外れ値が増える",
+      "標準偏差が変わる"
+    ],
+    "answer": "順序がないカテゴリに順序が付いてしまう",
+    "tags": ["ラベルエンコーディング", "カテゴリ変数", "前処理"],
+    "explanation_layers": [
+      "ラベルエンコーディングはカテゴリを整数に変換するため暗黙的に順序が付く。",
+      "順序のないカテゴリに順序が付くとモデルが誤った関係を学習する可能性がある。",
+      "特に線形モデルや距離ベースのモデルでは影響が大きい。",
+      "順序がないカテゴリにはOne-Hot Encodingが適切である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 357,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "標準化が必要になるケースはどれか？",
+    "choices": [
+      "距離ベースのモデルを使う場合",
+      "カテゴリデータが多い場合",
+      "外れ値が多い場合",
+      "データが対称な場合"
+    ],
+    "answer": "距離ベースのモデルを使う場合",
+    "tags": ["標準化", "距離ベース", "前処理"],
+    "explanation_layers": [
+      "距離ベースのモデルでは特徴量のスケールが結果に大きく影響する。",
+      "標準化により特徴量間のスケールを揃える必要がある。",
+      "kNNやk-meansなどのモデルで特に重要となる。",
+      "標準化は多くの機械学習モデルで一般的に用いられる前処理である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 358,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "正規化が必要になるケースはどれか？",
+    "choices": [
+      "距離ベースのモデルを使う場合",
+      "カテゴリデータが多い場合",
+      "外れ値が多い場合",
+      "データが対称な場合"
+    ],
+    "answer": "距離ベースのモデルを使う場合",
+    "tags": ["正規化", "距離ベース", "前処理"],
+    "explanation_layers": [
+      "正規化は特徴量を0〜1にスケーリングする処理である。",
+      "距離ベースのモデルでは特徴量のスケールが距離計算に影響する。",
+      "スケールが異なると距離計算が偏り誤った結果につながる。",
+      "正規化は距離ベースのモデルで特に重要となる前処理である。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 359,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "欠損値が少ない場合に最も単純な処理はどれか？",
+    "choices": [
+      "削除する",
+      "平均値で補完する",
+      "中央値で補完する",
+      "モデルで補完する"
+    ],
+    "answer": "削除する",
+    "tags": ["欠損値", "前処理", "削除"],
+    "explanation_layers": [
+      "欠損値が少ない場合は削除してもデータ量への影響が小さい。",
+      "削除は最も単純で実装しやすい方法である。",
+      "ただし欠損が多い場合は情報損失が大きくなるため不適切となる。",
+      "欠損の割合に応じて適切な補完方法を選択する必要がある。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
+  },
+  {
+    "id": 360,
+    "category": "データエンジニアリング",
+    "subcategory": "データ前処理",
+    "concept_id": "data_prep",
+    "question": "データ前処理の目的として最も適切なものはどれか？",
+    "choices": [
+      "モデルの性能を向上させる",
+      "データの量を減らす",
+      "カテゴリ変数を削除する",
+      "外れ値を必ず除去する"
+    ],
+    "answer": "モデルの性能を向上させる",
+    "tags": ["データ前処理", "モデル性能", "データ品質"],
+    "explanation_layers": [
+      "データ前処理はモデルが学習しやすい状態にデータを整えるために行う。",
+      "欠損補完、スケーリング、外れ値処理などはモデル性能向上に直結する。",
+      "前処理が不十分だとモデルが誤ったパターンを学習する可能性がある。",
+      "適切な前処理は高品質な機械学習モデルを構築するための基盤となる。"
+    ],
+    "concept_root": "data_engineering",
+    "concept_parent": "preprocessing"
   },
   {
     "id": 361,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
     "question": "次元削減の主な目的はどれか？",
     "choices": [
       "データの可視化を容易にする",
@@ -7626,55 +9082,91 @@
       "外れ値を除去する",
       "カテゴリ変数を削除する"
     ],
-    "answer": 0,
-    "explanation": "次元削減は可視化や計算効率向上のために行う。"
+    "answer": "データの可視化を容易にする",
+    "tags": ["次元削減", "可視化", "高次元データ"],
+    "explanation_layers": [
+      "次元削減は高次元データを低次元に圧縮する手法である。",
+      "低次元化することでデータの構造を視覚的に理解しやすくなる。",
+      "また計算効率の向上やノイズ除去にも役立つ。",
+      "可視化は次元削減の代表的な目的の一つである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 362,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "PCA（主成分分析）の目的として正しいものは？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "PCA（主成分分析）の目的として正しいものはどれか？",
     "choices": [
       "データの分散が最大となる方向を見つける",
       "平均値を最大化する",
       "標準偏差を最小化する",
       "カテゴリを数値化する"
     ],
-    "answer": 0,
-    "explanation": "PCAは分散が最大となる方向（主成分）を見つける手法。"
+    "answer": "データの分散が最大となる方向を見つける",
+    "tags": ["PCA", "主成分分析", "分散"],
+    "explanation_layers": [
+      "PCAはデータの分散が最大となる方向を主成分として抽出する。",
+      "分散が大きい方向は情報量が多いとみなされる。",
+      "主成分を用いることで次元削減や可視化が可能となる。",
+      "データの構造を理解するための代表的な手法である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 363,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "PCAで主成分を求める際に使用する数学的概念は？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "PCAで主成分を求める際に使用する数学的概念はどれか？",
     "choices": [
       "固有値と固有ベクトル",
       "中央値と最頻値",
       "二項分布",
       "ポアソン分布"
     ],
-    "answer": 0,
-    "explanation": "PCAは共分散行列の固有値・固有ベクトルを用いる。"
+    "answer": "固有値と固有ベクトル",
+    "tags": ["PCA", "固有値", "固有ベクトル"],
+    "explanation_layers": [
+      "PCAは共分散行列を固有値分解することで主成分を求める。",
+      "固有値は主成分の分散量を表す。",
+      "固有ベクトルは主成分の方向を表す。",
+      "線形代数の基礎概念がPCAの中心的役割を果たす。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 364,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "PCAを行う前に必要な処理は？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "PCAを行う前に必要な処理はどれか？",
     "choices": [
       "標準化",
       "正規化",
       "One-Hot Encoding",
       "外れ値除去"
     ],
-    "answer": 0,
-    "explanation": "特徴量のスケールを揃えるため標準化が必要。"
+    "answer": "標準化",
+    "tags": ["PCA", "標準化", "前処理"],
+    "explanation_layers": [
+      "PCAは特徴量のスケールに敏感な手法である。",
+      "スケールが異なると分散の大きさが不均一になり主成分が偏る。",
+      "そのため平均0・標準偏差1に変換する標準化が必要となる。",
+      "前処理として標準化はPCAの基本ステップである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 365,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
     "question": "主成分の寄与率とは何か？",
     "choices": [
       "その主成分が説明する分散の割合",
@@ -7682,13 +9174,22 @@
       "標準偏差の割合",
       "カテゴリ数の割合"
     ],
-    "answer": 0,
-    "explanation": "寄与率は主成分が説明する分散の割合。"
+    "answer": "その主成分が説明する分散の割合",
+    "tags": ["PCA", "寄与率", "分散"],
+    "explanation_layers": [
+      "寄与率は主成分がどれだけデータの分散を説明しているかを示す。",
+      "寄与率が高い主成分ほど情報量が多いと判断される。",
+      "次元削減では寄与率の高い主成分を優先して採用する。",
+      "寄与率は主成分の重要度を評価する指標である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 366,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
     "question": "累積寄与率が高いほど何を意味するか？",
     "choices": [
       "少ない主成分でデータの情報を多く保持できる",
@@ -7696,27 +9197,45 @@
       "標準偏差が大きいほど良い",
       "平均値が高いほど良い"
     ],
-    "answer": 0,
-    "explanation": "累積寄与率が高いほど情報保持率が高い。"
+    "answer": "少ない主成分でデータの情報を多く保持できる",
+    "tags": ["PCA", "累積寄与率", "次元削減"],
+    "explanation_layers": [
+      "累積寄与率は複数の主成分が説明する分散の合計割合を示す。",
+      "累積寄与率が高いほど少ない主成分で情報を保持できる。",
+      "次元削減では累積寄与率が一定以上になるよう主成分数を選択する。",
+      "情報保持率の指標として累積寄与率は重要である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 367,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "PCAで次元削減を行う際に削除される情報は？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "PCAで次元削減を行う際に削除される情報はどれか？",
     "choices": [
       "分散が小さい方向の情報",
       "分散が大きい方向の情報",
       "平均値の情報",
       "カテゴリの情報"
     ],
-    "answer": 0,
-    "explanation": "分散が小さい方向は情報量が少ないため削除される。"
+    "answer": "分散が小さい方向の情報",
+    "tags": ["PCA", "次元削減", "分散"],
+    "explanation_layers": [
+      "分散が小さい方向はデータの変動が少なく情報量が少ない。",
+      "PCAでは分散が小さい方向の成分を削除することで次元削減を行う。",
+      "分散が大きい方向（主成分）は情報量が多いため保持される。",
+      "情報量の観点から不要な次元を削除するのがPCAの特徴である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 368,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
     "question": "SVD（特異値分解）はどのような行列分解か？",
     "choices": [
       "行列を3つの行列に分解する",
@@ -7724,97 +9243,161 @@
       "行列を対角化する",
       "行列を正規化する"
     ],
-    "answer": 0,
-    "explanation": "SVDは行列を U・Σ・V^T の3つに分解する。"
+    "answer": "行列を3つの行列に分解する",
+    "tags": ["SVD", "行列分解", "線形代数"],
+    "explanation_layers": [
+      "SVDは任意の行列を U・Σ・V^T の3つに分解する手法である。",
+      "Σは特異値を含む対角行列であり行列の重要度を表す。",
+      "UとV^Tはそれぞれ左特異ベクトル・右特異ベクトルを表す。",
+      "SVDは次元削減や行列近似に広く利用される。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 369,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "次元削減を行う利点として正しいものは？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "次元削減を行う利点として正しいものはどれか？",
     "choices": [
       "計算コストが下がる",
       "標本数が増える",
       "外れ値が減る",
       "カテゴリ数が減る"
     ],
-    "answer": 0,
-    "explanation": "次元削減は計算コストを下げる効果がある。"
+    "answer": "計算コストが下がる",
+    "tags": ["次元削減", "計算効率", "高次元データ"],
+    "explanation_layers": [
+      "次元削減により特徴量数が減るため計算コストが下がる。",
+      "高次元データでは計算量が膨大になるため次元削減が有効となる。",
+      "またノイズ除去や過学習防止にも役立つ。",
+      "効率的なモデル構築のために次元削減は重要な手法である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 370,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "次元削減が有効になるケースは？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "次元削減が有効になるケースはどれか？",
     "choices": [
       "特徴量が非常に多い場合",
       "標本数が少ない場合",
       "カテゴリデータが多い場合",
       "外れ値が多い場合"
     ],
-    "answer": 0,
-    "explanation": "特徴量が多い場合に次元削減が有効。"
+    "answer": "特徴量が非常に多い場合",
+    "tags": ["次元削減", "高次元データ", "特徴量"],
+    "explanation_layers": [
+      "特徴量が多いと計算コストが増加しモデルが複雑になる。",
+      "次元削減により重要な情報を保持しつつ特徴量数を減らせる。",
+      "高次元データでは可視化や解釈も困難になるため次元削減が有効。",
+      "次元削減は高次元データ分析の基本的なアプローチである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
+
   {
     "id": 371,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "PCAが線形手法である理由は？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "PCAが線形手法である理由はどれか？",
     "choices": [
       "線形変換で主成分を求めるため",
       "非線形変換を使うため",
       "カテゴリ変数を扱うため",
       "外れ値を除去するため"
     ],
-    "answer": 0,
-    "explanation": "PCAは線形変換で主成分を求めるため線形手法。"
+    "answer": "線形変換で主成分を求めるため",
+    "tags": ["PCA", "線形手法", "主成分分析"],
+    "explanation_layers": [
+      "PCAは共分散行列を線形代数的に分解して主成分を求める。",
+      "主成分は元の特徴量の線形結合として表される。",
+      "そのためPCAは線形構造を前提とした次元削減手法となる。",
+      "非線形構造を扱う場合はt-SNEやUMAPなどが利用される。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 372,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "非線形次元削減手法として正しいものは？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "非線形次元削減手法として正しいものはどれか？",
     "choices": [
       "t-SNE",
       "PCA",
       "SVD",
       "線形回帰"
     ],
-    "answer": 0,
-    "explanation": "t-SNEは非線形次元削減手法。"
+    "answer": "t-SNE",
+    "tags": ["次元削減", "非線形", "t-SNE"],
+    "explanation_layers": [
+      "t-SNEはデータの局所構造を保持しながら非線形に次元削減する手法である。",
+      "高次元データのクラスタ構造を視覚化する際に有効。",
+      "PCAやSVDは線形手法であり非線形構造を捉えられない。",
+      "非線形次元削減は複雑なデータ構造の可視化に適している。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 373,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "PCAで主成分を選択する基準として正しいものは？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "PCAで主成分を選択する基準として正しいものはどれか？",
     "choices": [
       "寄与率が高い主成分を選ぶ",
       "平均値が高い主成分を選ぶ",
       "標準偏差が小さい主成分を選ぶ",
       "カテゴリ数が多い主成分を選ぶ"
     ],
-    "answer": 0,
-    "explanation": "寄与率が高い主成分が重要。"
+    "answer": "寄与率が高い主成分を選ぶ",
+    "tags": ["PCA", "寄与率", "主成分選択"],
+    "explanation_layers": [
+      "寄与率は主成分が説明する分散の割合を示す指標である。",
+      "寄与率が高い主成分ほど情報量が多いと判断される。",
+      "次元削減では寄与率の高い主成分を優先して採用する。",
+      "累積寄与率が一定以上になるよう主成分数を決定することが多い。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 374,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "次元削減を行うときの注意点は？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "次元削減を行うときの注意点はどれか？",
     "choices": [
       "情報が失われる可能性がある",
       "標本数が減る",
       "カテゴリ数が減る",
       "平均値が変わる"
     ],
-    "answer": 0,
-    "explanation": "次元削減では情報が失われる可能性がある。"
+    "answer": "情報が失われる可能性がある",
+    "tags": ["次元削減", "情報損失", "注意点"],
+    "explanation_layers": [
+      "次元削減では低分散方向の情報が削除されるため情報損失が発生する。",
+      "削除された情報が分析に重要な場合、モデル性能が低下する可能性がある。",
+      "次元削減の前に特徴量の重要度を確認することが重要。",
+      "情報保持率（累積寄与率）を基準に削減量を調整する必要がある。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 375,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
     "question": "PCAで使用する行列はどれか？",
     "choices": [
       "共分散行列",
@@ -7822,13 +9405,22 @@
       "カテゴリ行列",
       "距離行列"
     ],
-    "answer": 0,
-    "explanation": "PCAは共分散行列を用いる。"
+    "answer": "共分散行列",
+    "tags": ["PCA", "共分散行列", "線形代数"],
+    "explanation_layers": [
+      "PCAは特徴量間の共分散を基に主成分を求める。",
+      "共分散行列を固有値分解することで主成分が得られる。",
+      "相関行列を使う場合もあるが基本は共分散行列である。",
+      "共分散行列は特徴量間の線形関係を表す重要な行列である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 376,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
     "question": "主成分得点とは何か？",
     "choices": [
       "元データを主成分に投影した値",
@@ -7836,63 +9428,107 @@
       "主成分の標準偏差",
       "主成分のカテゴリ数"
     ],
-    "answer": 0,
-    "explanation": "主成分得点は元データを主成分に投影した値。"
+    "answer": "元データを主成分に投影した値",
+    "tags": ["PCA", "主成分得点", "投影"],
+    "explanation_layers": [
+      "主成分得点は元データを主成分方向に投影した値である。",
+      "主成分得点を使うことで低次元空間でデータを表現できる。",
+      "得点は主成分空間での位置を示し可視化にも利用される。",
+      "次元削減後のデータ分析において重要な指標となる。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 377,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "PCAで標準化が必要な理由は？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "PCAで標準化が必要な理由はどれか？",
     "choices": [
       "特徴量のスケールが異なると分散が偏るため",
       "平均値が変わるため",
       "カテゴリ数が変わるため",
       "標本数が変わるため"
     ],
-    "answer": 0,
-    "explanation": "スケールが異なると分散が偏り主成分が歪む。"
+    "answer": "特徴量のスケールが異なると分散が偏るため",
+    "tags": ["PCA", "標準化", "スケール"],
+    "explanation_layers": [
+      "特徴量のスケールが異なると大きいスケールの特徴量が分散を支配する。",
+      "その結果、主成分が本来重要でない特徴量に偏る可能性がある。",
+      "標準化によりすべての特徴量を同じスケールに揃える。",
+      "PCAの前処理として標準化は必須である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 378,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "次元削減がモデルの過学習防止に役立つ理由は？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "次元削減がモデルの過学習防止に役立つ理由はどれか？",
     "choices": [
       "不要な特徴量を減らすため",
       "標本数が増えるため",
       "平均値が増えるため",
       "カテゴリ数が減るため"
     ],
-    "answer": 0,
-    "explanation": "不要な特徴量を減らすことで過学習を防ぎやすくなる。"
+    "answer": "不要な特徴量を減らすため",
+    "tags": ["次元削減", "過学習", "特徴量削減"],
+    "explanation_layers": [
+      "不要な特徴量が多いとモデルがノイズまで学習してしまう。",
+      "次元削減により重要な特徴量のみを残すことで過学習を防ぎやすくなる。",
+      "特徴量が減ることでモデルの複雑性も下がる。",
+      "過学習防止は次元削減の重要な効果の一つである。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 379,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "SVDのΣ（シグマ）行列が表すものは？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "SVDのΣ（シグマ）行列が表すものはどれか？",
     "choices": [
       "特異値",
       "平均値",
       "標準偏差",
       "カテゴリ数"
     ],
-    "answer": 0,
-    "explanation": "Σ行列は特異値を表す。"
+    "answer": "特異値",
+    "tags": ["SVD", "特異値", "行列分解"],
+    "explanation_layers": [
+      "Σ行列は特異値を対角成分として持つ行列である。",
+      "特異値は行列の重要度や情報量を表す指標となる。",
+      "大きい特異値ほど重要な成分を示す。",
+      "SVDは次元削減や行列近似に広く利用される。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   },
   {
     "id": 380,
-    "category": "統計基礎",
-    "sub_category": "dimensionality_reduction",
-    "question": "次元削減の効果として最も適切なものは？",
+    "category": "統計学",
+    "subcategory": "次元削減",
+    "concept_id": "stats_dimensionality_reduction",
+    "question": "次元削減の効果として最も適切なものはどれか？",
     "choices": [
       "計算効率の向上と可視化の容易化",
       "標本数の増加",
       "平均値の増加",
       "カテゴリ数の増加"
     ],
-    "answer": 0,
-    "explanation": "次元削減は計算効率向上と可視化に役立つ。"
+    "answer": "計算効率の向上と可視化の容易化",
+    "tags": ["次元削減", "可視化", "計算効率"],
+    "explanation_layers": [
+      "次元削減により特徴量数が減り計算効率が向上する。",
+      "低次元化することでデータの構造を視覚的に理解しやすくなる。",
+      "高次元データでは可視化が困難なため次元削減が有効となる。",
+      "次元削減は分析の効率化と理解促進に役立つ重要な手法である。"
+    ],
+    "concept_root": "statistics",
+    "concept_parent": "dimensionality_reduction"
   }
 ]
